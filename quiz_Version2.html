@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario Ferroviario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .options {
+            margin-top: 10px;
+        }
+        .option {
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #eee;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #f5f5f5;
+        }
+        .option.selected {
+            background-color: #e0e0ff;
+        }
+        .option.correct {
+            background-color: #c8ffcb;
+            border-color: #8bc34a;
+        }
+        .option.incorrect {
+            background-color: #ffdddd;
+            border-color: #ff5252;
+        }
+        .btn {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .result.good {
+            background-color: #dff0d8;
+            border: 1px solid #3c763d;
+            color: #3c763d;
+        }
+        .result.bad {
+            background-color: #f2dede;
+            border: 1px solid #a94442;
+            color: #a94442;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cuestionario Ferroviario</h1>
+    <div id="quiz-container">
+        <div class="question" id="q1">
+            <h3>1. ¿Qué locomotora tiene menos ejes motores y mayor número de motores?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q1', this)">a) 2−D−D−2</div>
+                <div class="option" onclick="selectOption('q1', this)">b) 1A−B−B−A1</div>
+                <div class="option" onclick="selectOption('q1', this)">c) Bo-Bo-Bo</div>
+                <div class="option" onclick="selectOption('q1', this)">d) 1−C−C−1</div>
+            </div>
+        </div>
+
+        <div class="question" id="q2">
+            <h3>2. Con el A.S.F.A....</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q2', this)">a) Todas las respuestas son falsas</div>
+                <div class="option" onclick="selectOption('q2', this)">b) No hacen falta pedales ni balizas en la vía</div>
+                <div class="option" onclick="selectOption('q2', this)">c) El sistema frena al tren si rebasa una señal</div>
+                <div class="option" onclick="selectOption('q2', this)">d) Los maquinistas reciben en cabina la señalización y datos de ...</div>
+            </div>
+        </div>
+
+        <div class="question" id="q3">
+            <h3>3. La falta de interoperabilidad…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q3', this)">a) No se produce en la red ferroviaria española</div>
+                <div class="option" onclick="selectOption('q3', this)">b) Sólo se produce en la frontera entre España y Francia</div>
+                <div class="option" onclick="selectOption('q3', this)">c) Es menor en las líneas de vía estrecha</div>
+                <div class="option" onclick="selectOption('q3', this)">d) Disminuiría si se implantase el ERTMS</div>
+            </div>
+        </div>
+
+        <div class="question" id="q4">
+            <h3>4. El desgaste de los carriles al paso de los trenes…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q4', this)">a) Es mayor en un carril UIC 54 que en un UIC 60</div>
+                <div class="option" onclick="selectOption('q4', this)">b) Ninguna respuesta es cierta</div>
+                <div class="option" onclick="selectOption('q4', this)">c) Es menor en un carril de garganta que en uno tipo Vignole</div>
+                <div class="option" onclick="selectOption('q4', this)">d) Es mayor en un carril UIC 60 que en un UIC 71</div>
+            </div>
+        </div>
+
+        <div class="question" id="q5">
+            <h3>5. En las nuevas líneas de alta velocidad…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q5', this)">a) El transporte de electricidad a lo largo de la línea se realiza a 25 kV, y la alimentación de los trenes a 50kV</div>
+                <div class="option" onclick="selectOption('q5', this)">b) No es necesario el circuito de retorno</div>
+                <div class="option" onclick="selectOption('q5', this)">c) El transporte de electricidad a lo largo de la línea se realiza a 50 kV, y la alimentación de los trenes a 25 kV</div>
+                <div class="option" onclick="selectOption('q5', this)">d) Los maquinistas conducen con los ojos cerrados</div>
+            </div>
+        </div>
+
+        <div class="question" id="q6">
+            <h3>6. Actualmente, las traviesas de hormigón…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q6', this)">a) Son de hormigón en masa</div>
+                <div class="option" onclick="selectOption('q6', this)">b) Son todas monobloque</div>
+                <div class="option" onclick="selectOption('q6', this)">c) Son de hormigón pretensado si son bibloque</div>
+                <div class="option" onclick="selectOption('q6', this)">d) Ninguna es cierta</div>
+            </div>
+        </div>
+
+        <div class="question" id="q7">
+            <h3>7. La catenaria compensada…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q7', this)">a) No sirve para electrificación en corriente alterna</div>
+                <div class="option" onclick="selectOption('q7', this)">b) No se puede instalar en túneles</div>
+                <div class="option" onclick="selectOption('q7', this)">c) Mantiene la tensión mecánica constante</div>
+                <div class="option" onclick="selectOption('q7', this)">d) Mantiene la tensión eléctrica constante</div>
+            </div>
+        </div>
+
+        <div class="question" id="q8">
+            <h3>8. Las sujeciones elásticas…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q8', this)">a) Pueden utilizarse con traviesa polivalente</div>
+                <div class="option" onclick="selectOption('q8', this)">b) Se deforman para igualar el peralte, pero luego se recuperan</div>
+                <div class="option" onclick="selectOption('q8', this)">c) Aprietan el carril contra el balasto</div>
+                <div class="option" onclick="selectOption('q8', this)">d) Son unos tornillos cuya cabeza sujeta el patín del carril y cuya rosca se mete en la traviesa</div>
+            </div>
+        </div>
+
+        <div class="question" id="q9">
+            <h3>9. La parte donde se produce la mayor discontinuidad en los desvíos se llama…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q9', this)">a) Garganta</div>
+                <div class="option" onclick="selectOption('q9', this)">b) Pata de liebre</div>
+                <div class="option" onclick="selectOption('q9', this)">c) Laguna</div>
+                <div class="option" onclick="selectOption('q9', this)">d) Cabeza</div>
+            </div>
+        </div>
+
+        <div class="question" id="q10">
+            <h3>10. Una forma de aumentar la velocidad de paso por vía desviada en un desvío es…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q10', this)">a) Aumentar el ángulo de cruzamiento</div>
+                <div class="option" onclick="selectOption('q10', this)">b) Poner peralte en la vía desviada</div>
+                <div class="option" onclick="selectOption('q10', this)">c) Dar a la laguna trazado de clotoide</div>
+                <div class="option" onclick="selectOption('q10', this)">d) Ninguna de las anteriores</div>
+            </div>
+        </div>
+
+        <div class="question" id="q11">
+            <h3>11. Estas en España y ves pasar un tren:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q11', this)">a) Lo normal es que pase con retraso</div>
+                <div class="option" onclick="selectOption('q11', this)">b) Lo normal es que sea una locomotora tirando de coches.</div>
+                <div class="option" onclick="selectOption('q11', this)">c) Lo normal es que sea un tren de dos pisos</div>
+                <div class="option" onclick="selectOption('q11', this)">d) Lo normal es que sea un automotor.</div>
+            </div>
+        </div>
+
+        <div class="question" id="q12">
+            <h3>12. El elastómero se utiliza:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q12', this)">a) En vía en placa</div>
+                <div class="option" onclick="selectOption('q12', this)">b) En cuñas de transición</div>
+                <div class="option" onclick="selectOption('q12', this)">c) En juntas</div>
+                <div class="option" onclick="selectOption('q12', this)">d) En el apoyo de la aguja sobre la contraaguja</div>
+            </div>
+        </div>
+
+        <div class="question" id="q13">
+            <h3>13. ¿Qué sistema de señalización y control de tráfico tiene cantones móviles?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q13', this)">a) ERTMS nivel 3</div>
+                <div class="option" onclick="selectOption('q13', this)">b) ERTMS nivel 2</div>
+                <div class="option" onclick="selectOption('q13', this)">c) ERTMS nivel 1</div>
+                <div class="option" onclick="selectOption('q13', this)">d) Cantones ¿Qué?</div>
+            </div>
+        </div>
+
+        <div class="question" id="q14">
+            <h3>14. Contrato programa</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q14', this)">a) Es la base de la relación de las compañías ferroviarias privadas y el estado durante el siglo XIX</div>
+                <div class="option" onclick="selectOption('q14', this)">b) Es el déficit de los servicios públicos de transporte ferroviario que lo debe financiar el estado</div>
+                <div class="option" onclick="selectOption('q14', this)">c) Es una herramienta que sirve para evaluar el déficit de RENFE</div>
+                <div class="option" onclick="selectOption('q14', this)">d) Recoge compromisos por parte del estado y por parte de RENFE.</div>
+            </div>
+        </div>
+
+        <div class="question" id="q15">
+            <h3>15. En el proceso de fabricación de los carriles:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q15', this)">a) El enfriamiento debe ser rápido y uniforme para conseguir un buen acero.</div>
+                <div class="option" onclick="selectOption('q15', this)">b) Hay que aportar más carbono que hierro para conseguir un buen acero</div>
+                <div class="option" onclick="selectOption('q15', this)">c) El tiempo de enfriamiento del patín y el alma es mayor que lo que tarda en enfriarse la cabeza.</div>
+                <div class="option" onclick="selectOption('q15', this)">d) El tiempo de enfriamiento del patín y de la cabeza es mayor que el que tarda el alma en enfriarse.</div>
+            </div>
+        </div>
+
+        <div class="question" id="q16">
+            <h3>16. ¿Cuál de las siguientes líneas tendrá mayor capacidad de transporte según el sistema de comunicación y control de tráfico?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q16', this)">a) Bloqueo automatico banalizado en vía doble</div>
+                <div class="option" onclick="selectOption('q16', this)">b) Bloque automatico en via única</div>
+                <div class="option" onclick="selectOption('q16', this)">c) Bloqueo telefónico en via doble</div>
+                <div class="option" onclick="selectOption('q16', this)">d) Bloqueo automatico unidireccional en via doble</div>
+            </div>
+        </div>
+
+        <div class="question" id="q17">
+            <h3>17. ¿En qué se beneficiaría el ferrocarril de Galileo?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q17', this)">a) En nada porque ese señor ya se ha muerto</div>
+                <div class="option" onclick="selectOption('q17', this)">b) En el desarrollo del más moderno sistema de señalización y control de trafico</div>
+                <div class="option" onclick="selectOption('q17', this)">c) Ayudaría a la implementación del ERTMS nivel 1</div>
+                <div class="option" onclick="selectOption('q17', this)">d) En el descubrimiento de la ley de peralte</div>
+            </div>
+        </div>
+
+        <div class="question" id="q18">
+            <h3>18. El AVE Madrid−Sevilla</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q18', this)">a) Funciona con una tensión de traccion de 3000 voltios</div>
+                <div class="option" onclick="selectOption('q18', this)">b) Funciona con corriente alterna</div>
+                <div class="option" onclick="selectOption('q18', this)">c) Funciona con conrriente continua</div>
+                <div class="option" onclick="selectOption('q18', this)">d) Funciona con una tensión de 15000 voltios</div>
+            </div>
+        </div>
+
+        <div class="question" id="q19">
+            <h3>19. ¿Qué sistemas pueden funcionar sin ningún cable de señalización ni de comunicación a lo largo de la vía?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q19', this)">a) ERTMS nivel 1 y 3</div>
+                <div class="option" onclick="selectOption('q19', this)">b) ERTMS nivel 2 y 3</div>
+                <div class="option" onclick="selectOption('q19', this)">c) ERTMS nivel 1 y 2</div>
+                <div class="option" onclick="selectOption('q19', this)">d) Ninguno de ellos</div>
+            </div>
+        </div>
+
+        <div class="question" id="q20">
+            <h3>20. El radio de bombeo</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q20', this)">a) Es mayor en las curvas</div>
+                <div class="option" onclick="selectOption('q20', this)">b) Permite el drenaje superficial de la plataforma</div>
+                <div class="option" onclick="selectOption('q20', this)">c) Es menor en el carril peraltado</div>
+                <div class="option" onclick="selectOption('q20', this)">d) Permite una mayor duración del carril</div>
+            </div>
+        </div>
+
+        <div class="question" id="q21">
+            <h3>21. El juego de la vía…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q21', this)">a) no se implanta en las rectas</div>
+                <div class="option" onclick="selectOption('q21', this)">b) todas son falsas</div>
+                <div class="option" onclick="selectOption('q21', this)">c) debe aumentarse en las rectas</div>
+                <div class="option" onclick="selectOption('q21', this)">d) es mayor que el ancho de vía</div>
+            </div>
+        </div>
+
+        <div class="question" id="q22">
+            <h3>22. Siendo iguales en todo lo demás, la locomotora B tiene sus motores suspendidos, y la locomotora A, no:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q22', this)">a) A será más agresiva a la vía que B</div>
+                <div class="option" onclick="selectOption('q22', this)">b) Todas son verdaderas</div>
+                <div class="option" onclick="selectOption('q22', this)">c) El peso de los motores de A está amortiguado, y el peso de los motores de B, no</div>
+                <div class="option" onclick="selectOption('q22', this)">d) B tendrá menor porcentaje de peso suspendido que A</div>
+            </div>
+        </div>
+
+        <div class="question" id="q23">
+            <h3>23. Si un carril tiene una discontinuidad geométrica en planta, la vía tendrá…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q23', this)">a) Un fallo de nivelación longitudinal</div>
+                <div class="option" onclick="selectOption('q23', this)">b) Alabeo</div>
+                <div class="option" onclick="selectOption('q23', this)">c) Una flecha</div>
+                <div class="option" onclick="selectOption('q23', this)">d) Un fallo de nivelación transversal</div>
+            </div>
+        </div>
+
+        <div class="question" id="q24">
+            <h3>24. Los fallos admisibles en la continuidad geométrica en planta y alzado en las líneas de ffcc son del orden de:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q24', this)">a) m</div>
+                <div class="option" onclick="selectOption('q24', this)">b) km</div>
+                <div class="option" onclick="selectOption('q24', this)">c) dm</div>
+                <div class="option" onclick="selectOption('q24', this)">d) mm</div>
+            </div>
+        </div>
+
+        <div class="question" id="q25">
+            <h3>25. ¿En qué capa de la superestructura se realiza el posicionado de la vía?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q25', this)">a) En el anticontaminante</div>
+                <div class="option" onclick="selectOption('q25', this)">b) En el subbalasto</div>
+                <div class="option" onclick="selectOption('q25', this)">c) En la capa de forma</div>
+                <div class="option" onclick="selectOption('q25', this)">d) En el balasto</div>
+            </div>
+        </div>
+
+        <div class="question" id="q26">
+            <h3>26. ¿Qué locomotora tiene menos motores y más ejes portantes?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q26', this)">a) 1BoBo1</div>
+                <div class="option" onclick="selectOption('q26', this)">b) A1A1A1A</div>
+                <div class="option" onclick="selectOption('q26', this)">c) 2BB2</div>
+                <div class="option" onclick="selectOption('q26', this)">d) 1D1</div>
+            </div>
+        </div>
+
+        <div class="question" id="q27">
+            <h3>27. ¿Para qué tipo de línea compraría trenes pendulares?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q27', this)">a) Para una línea de alta velocidad</div>
+                <div class="option" onclick="selectOption('q27', this)">b) Todas son falsas</div>
+                <div class="option" onclick="selectOption('q27', this)">c) Para una línea de trazado sinuoso</div>
+                <div class="option" onclick="selectOption('q27', this)">d) Es indiferente</div>
+            </div>
+        </div>
+
+        <div class="question" id="q28">
+            <h3>28. A igual peso adherente, ¿Qué automotor será más agresivo a la vía?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q28', this)">a) CC-22-22-22-CC</div>
+                <div class="option" onclick="selectOption('q28', this)">b) B2-B2-B2-B2-B2</div>
+                <div class="option" onclick="selectOption('q28', this)">c) BoBo-22-BoBo-22-BoBo-22-BoBo-22-BoBo</div>
+                <div class="option" onclick="selectOption('q28', this)">d) BB-22-BB-22-BB-22-BB</div>
+            </div>
+        </div>
+
+        <div class="question" id="q29">
+            <h3>29. ¿Cuál es el freno principal de un tren?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q29', this)">a) El freno neumático</div>
+                <div class="option" onclick="selectOption('q29', this)">b) El freno eléctrico</div>
+                <div class="option" onclick="selectOption('q29', this)">c) El freno de estacionamiento</div>
+                <div class="option" onclick="selectOption('q29', this)">d) El freno de emergencia</div>
+            </div>
+        </div>
+
+        <div class="question" id="q30">
+            <h3>30. El ancho de la vía se mide…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q30', this)">a) Entre las cabezas</div>
+                <div class="option" onclick="selectOption('q30', this)">b) De alma a alma</div>
+                <div class="option" onclick="selectOption('q30', this)">c) Entre los patines</div>
+                <div class="option" onclick="selectOption('q30', this)">d) Entre las gargantas</div>
+            </div>
+        </div>
+
+        <div class="question" id="q31">
+            <h3>31. A igual longitud, ¿Qué vehículo tendrá mayor empate?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q31', this)">a) Un remolque TALGO</div>
+                <div class="option" onclick="selectOption('q31', this)">b) Un coche de bogies</div>
+                <div class="option" onclick="selectOption('q31', this)">c) El empate es indiferente del tipo de vehículo</div>
+                <div class="option" onclick="selectOption('q31', this)">d) Un coche de ejes</div>
+            </div>
+        </div>
+
+        <div class="question" id="q32">
+            <h3>32. El bateo de la vía…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q32', this)">a) Compacta la capa de subbalasto</div>
+                <div class="option" onclick="selectOption('q32', this)">b) Se realiza antes de instalar la vía sobre las capas de asiento</div>
+                <div class="option" onclick="selectOption('q32', this)">c) Debe dejar el balasto sin huecos</div>
+                <div class="option" onclick="selectOption('q32', this)">d) Ninguna es cierta</div>
+            </div>
+        </div>
+
+        <div class="question" id="q33">
+            <h3>33. ¿Qué sistema de alimentación separa las funciones de sustentación y de alimentación?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q33', this)">a) Tercer carril</div>
+                <div class="option" onclick="selectOption('q33', this)">b) Catenaria</div>
+                <div class="option" onclick="selectOption('q33', this)">c) Línea aérea simple</div>
+                <div class="option" onclick="selectOption('q33', this)">d) Catenaria rígida</div>
+            </div>
+        </div>
+
+        <div class="question" id="q34">
+            <h3>34. ¿Qué locomotora tiene más motores y menos ejes motores?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q34', this)">a) 1BoBo1</div>
+                <div class="option" onclick="selectOption('q34', this)">b) 2BB2</div>
+                <div class="option" onclick="selectOption('q34', this)">c) 1D1</div>
+                <div class="option" onclick="selectOption('q34', this)">d) 2CC2</div>
+            </div>
+        </div>
+
+        <div class="question" id="q35">
+            <h3>35. Si una locomotora diésel, remolcando un tren de mercancías, activa el freno eléctrico…</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q35', this)">a) Frenarán todos los ejes del tren</div>
+                <div class="option" onclick="selectOption('q35', this)">b) Frenarán los ejes portantes</div>
+                <div class="option" onclick="selectOption('q35', this)">c) Usará la energía generada para tracción</div>
+                <div class="option" onclick="selectOption('q35', this)">d) Disipará la energía generada</div>
+            </div>
+        </div>
+
+        <div class="question" id="q36">
+            <h3>36. ¿Qué tren tendrá más porcentaje de peso no suspendido?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q36', this)">a) Aquel que tenga el motor apoyado en el bastidor y en el eje</div>
+                <div class="option" onclick="selectOption('q36', this)">b) Es indiferente</div>
+                <div class="option" onclick="selectOption('q36', this)">c) Aquel que tenga los motores en los ejes</div>
+                <div class="option" onclick="selectOption('q36', this)">d) Aquel que tenga los motores en el bastidor de la caja</div>
+            </div>
+        </div>
+
+        <div class="question" id="q37">
+            <h3>37. ¿Para qué tipo de línea sería más apropiado compras trenes pendulares o basculantes?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q37', this)">a) Para una línea de ancho ibérico</div>
+                <div class="option" onclick="selectOption('q37', this)">b) Para una línea con curvas de radio reducido</div>
+                <div class="option" onclick="selectOption('q37', this)">c) Para una línea de alta velocidad</div>
+                <div class="option" onclick="selectOption('q37', this)">d) Para una línea de ancho internacional</div>
+            </div>
+        </div>
+
+        <div class="question" id="q38">
+            <h3>38. Siendo iguales en todo lo demás, la locomotora B tiene sus motores suspendidos, y la locomotora A no:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q38', this)">a) El peso de los motores de A no estará amortiguado, y el peso de los motores de B, sí</div>
+                <div class="option" onclick="selectOption('q38', this)">b) B será menos agresiva a la vía que A</div>
+                <div class="option" onclick="selectOption('q38', this)">c) A tendrá menor porcentaje de peso suspendido que B</div>
+                <div class="option" onclick="selectOption('q38', this)">d) Todas son correctas</div>
+            </div>
+        </div>
+
+        <div class="question" id="q39">
+            <h3>39. ¿Qué trenes inclinan la caja hacia el interior de las curvas de forma natural (con suspensiones pasivas)?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q39', this)">a) Los trenes regionales</div>
+                <div class="option" onclick="selectOption('q39', this)">b) Los trenes basculantes</div>
+                <div class="option" onclick="selectOption('q39', this)">c) Los trenes pendulares</div>
+                <div class="option" onclick="selectOption('q39', this)">d) Los trenes convencionales</div>
+            </div>
+        </div>
+
+        <div class="question" id="q40">
+            <h3>40. A igual peso adherente, ¿qué automotor será más agresivo a la vía?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q40', this)">a) B2-B2-B2-B2-B2-B2</div>
+                <div class="option" onclick="selectOption('q40', this)">b) BB-22-BB-22-BB-22-BB</div>
+                <div class="option" onclick="selectOption('q40', this)">c) BB-22-22-22-22-BB</div>
+                <div class="option" onclick="selectOption('q40', this)">d) A1A1-A1A1-A1A1-A1A1-A1A1-A1A1</div>
+            </div>
+        </div>
+
+        <div class="question" id="q41">
+            <h3>41. El eje montado en el ffcc:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q41', this)">a) Gira un número de vueltas distinto que las ruedas para adaptarse a la diferencia de longitud entre carril exterior e interior</div>
+                <div class="option" onclick="selectOption('q41', this)">b) Permite que las ruedas giren independientes para adaptarse a la curva</div>
+                <div class="option" onclick="selectOption('q41', this)">c) Ninguna</div>
+                <div class="option" onclick="selectOption('q41', this)">d) Presenta algunos problemas a la hora de pasar por las curvas</div>
+            </div>
+        </div>
+
+        <div class="question" id="q42">
+            <h3>42. ¿Qué traviesa mantiene mejor la geometría?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q42', this)">a) A189</div>
+                <div class="option" onclick="selectOption('q42', this)">b) RS</div>
+                <div class="option" onclick="selectOption('q42', this)">c) BR94</div>
+                <div class="option" onclick="selectOption('q42', this)">d) Todas por igual</div>
+            </div>
+        </div>
+
+        <div class="question" id="q43">
+            <h3>43. En una línea de alta velocidad de vía doble, ¿Qué aparatos de vía usaría para pasar de una vía a otra y poder circular así en cada una en ambos sentidos?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q43', this)">a) Escape doble</div>
+                <div class="option" onclick="selectOption('q43', this)">b) Puente transbordador</div>
+                <div class="option" onclick="selectOption('q43', this)">c) Escape cruzado</div>
+                <div class="option" onclick="selectOption('q43', this)">d) Ninguna</div>
+            </div>
+        </div>
+
+        <div class="question" id="q44">
+            <h3>44. Número de traviesas por metro</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q44', this)">a) 0.6</div>
+                <div class="option" onclick="selectOption('q44', this)">b) 1</div>
+                <div class="option" onclick="selectOption('q44', this)">c) 1.5</div>
+                <div class="option" onclick="selectOption('q44', this)">d) 1.66</div>
+            </div>
+        </div>
+
+        <div class="question" id="q45">
+            <h3>45. ¿Qué es el peso no suspendido?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q45', this)">a) Los ejes</div>
+                <div class="option" onclick="selectOption('q45', this)">b) Las amortiguaciones</div>
+                <div class="option" onclick="selectOption('q45', this)">c) Los ejes portantes</div>
+                <div class="option" onclick="selectOption('q45', this)">d) Los ejes motores</div>
+            </div>
+        </div>
+
+        <div class="question" id="q46">
+            <h3>46. El sistema de señalización y control del tráfico ferroviario</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q46', this)">a) No es necesario si la línea es de doble vía</div>
+                <div class="option" onclick="selectOption('q46', this)">b) Ninguna es correcta</div>
+                <div class="option" onclick="selectOption('q46', this)">c) Se aplicó en las primeras líneas ferroviarias</div>
+                <div class="option" onclick="selectOption('q46', this)">d) Se va extendiendo poco a poco a todas las líneas</div>
+            </div>
+        </div>
+
+        <div class="question" id="q47">
+            <h3>47. Casi toda la red ferroviaria en España estaba construida en:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q47', this)">a) 1992</div>
+                <div class="option" onclick="selectOption('q47', this)">b) 1900</div>
+                <div class="option" onclick="selectOption('q47', this)">c) 1950</div>
+                <div class="option" onclick="selectOption('q47', this)">d) 1848</div>
+            </div>
+        </div>
+
+        <div class="question" id="q48">
+            <h3>48. ¿Qué sistema de control de tráfico se basa en la transmisión puntual de información para controlar el tráfico en la línea?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q48', this)">a) Ninguno</div>
+                <div class="option" onclick="selectOption('q48', this)">b) Bloqueo eléctrico manual</div>
+                <div class="option" onclick="selectOption('q48', this)">c) ETRMS 3</div>
+                <div class="option" onclick="selectOption('q48', this)">d) El bloqueo automático</div>
+            </div>
+        </div>
+
+        <div class="question" id="q49">
+            <h3>49. En un coche convencional de viajeros, el peso remolcado por viajero es de unos:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q49', this)">a) 1000 kg</div>
+                <div class="option" onclick="selectOption('q49', this)">b) 100 kg</div>
+                <div class="option" onclick="selectOption('q49', this)">c) 10 kg</div>
+                <div class="option" onclick="selectOption('q49', this)">d) Ninguna</div>
+            </div>
+        </div>
+
+        <div class="question" id="q50">
+            <h3>50. El carril UIC 60 tiene una sección de:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q50', this)">a) 69.34 cm2</div>
+                <div class="option" onclick="selectOption('q50', this)">b) 60 cm2</div>
+                <div class="option" onclick="selectOption('q50', this)">c) 76.86 cm2</div>
+                <div class="option" onclick="selectOption('q50', this)">d) 90.79 cm2</div>
+            </div>
+        </div>
+
+        <div class="question" id="q51">
+            <h3>51. Un viajero que va en un tren convencional sufre una aceleración centrífuga de 0,3m/s2</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q51', this)">a) Hay insuficiencia de peralte</div>
+                <div class="option" onclick="selectOption('q51', this)">b) Hay exceso de peralte</div>
+                <div class="option" onclick="selectOption('q51', this)">c) El tren circula a una velocidad superior a la de la curva</div>
+                <div class="option" onclick="selectOption('q51', this)">d) El pasajero sufre una aceleración al límite de comodidad</div>
+            </div>
+        </div>
+
+        <div class="question" id="q52">
+            <h3>52. Un pasajero de un tren convencional sufre una aceleración transversal compensada de 0.85 m/s2:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q52', this)">a) Hay insuficiencia de peralte</div>
+                <div class="option" onclick="selectOption('q52', this)">b) Hay exceso de peralte</div>
+                <div class="option" onclick="selectOption('q52', this)">c) El tren circula a una velocidad superior a la de la curva</div>
+                <div class="option" onclick="selectOption('q52', this)">d) El pasajero sufre una aceleración superior al límite de comodidad</div>
+            </div>
+        </div>
+
+        <div class="question" id="q53">
+            <h3>53. Un tren basculante sufre una aceleración transversal de 0.95 m/s2:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q53', this)">a) Hay insuficiencia de peralte</div>
+                <div class="option" onclick="selectOption('q53', this)">b) Hay exceso de peralte</div>
+                <div class="option" onclick="selectOption('q53', this)">c) El tren circula a una velocidad superior a la de la curva</div>
+                <div class="option" onclick="selectOption('q53', this)">d) Las suspensiones compensarían esta aceleración para que el pasajero no sufra una aceleración molesta</div>
+            </div>
+        </div>
+
+        <div class="question" id="q54">
+            <h3>54. ¿Por qué está limitado el peralte de las curvas?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q54', this)">a) Para limitar la velocidad en las curvas</div>
+                <div class="option" onclick="selectOption('q54', this)">b) Por el mayor desgaste que sufre el carril interior en las curvas</div>
+                <div class="option" onclick="selectOption('q54', this)">c) Por la mayor aceleración que sufren los pasajeros hacia el interior de la curva si el tren está parado</div>
+                <div class="option" onclick="selectOption('q54', this)">d) Ninguna es correcta</div>
+            </div>
+        </div>
+
+        <div class="question" id="q55">
+            <h3>55. Los trenes basculantes son más sensibles a:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q55', this)">a) La aceleración centrífuga no compensada hacia el interior de las curvas</div>
+                <div class="option" onclick="selectOption('q55', this)">b) La aceleración centrífuga no compensada hacia el exterior de las curvas</div>
+                <div class="option" onclick="selectOption('q55', this)">c) Aceleración vertical</div>
+                <div class="option" onclick="selectOption('q55', this)">d) Aceleración longitudinal</div>
+            </div>
+        </div>
+
+        <div class="question" id="q56">
+            <h3>56. En un bogie, ¿Cómo se llama la distancia que va desde el punto de contacto de la pestaña de una de las ruedas con el carril al plano que forman las otras tres ruedas?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q56', this)">a) Retranqueo</div>
+                <div class="option" onclick="selectOption('q56', this)">b) Insuficiencia de peralte</div>
+                <div class="option" onclick="selectOption('q56', this)">c) Alabeo</div>
+                <div class="option" onclick="selectOption('q56', this)">d) Pendiente diagrama de peraltes</div>
+            </div>
+        </div>
+
+        <div class="question" id="q57">
+            <h3>57. ¿Qué limita el coeficiente de calidad de una curva de transición?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q57', this)">a) Velocidad de la curva de transición</div>
+                <div class="option" onclick="selectOption('q57', this)">b) Parámetro de la clotoide</div>
+                <div class="option" onclick="selectOption('q57', this)">c) Longitud del acuerdo</div>
+                <div class="option" onclick="selectOption('q57', this)">d) El radio</div>
+            </div>
+        </div>
+
+        <div class="question" id="q58">
+            <h3>58. ¿De qué parámetros depende el valor del retranqueo?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q58', this)">a) De la longitud de la recta y el de radio de la curva circular</div>
+                <div class="option" onclick="selectOption('q58', this)">b) De la longitud de la curva de transición y la velocidad de diseño</div>
+                <div class="option" onclick="selectOption('q58', this)">c) De la longitud de la curva de transición y del radio de la curva circular</div>
+                <div class="option" onclick="selectOption('q58', this)">d) Ninguna es correcta</div>
+            </div>
+        </div>
+
+        <div class="question" id="q59">
+            <h3>59. Un desvío consta de:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q59', this)">a) Cruzamiento, cambio, carriles de unión y bloqueos</div>
+                <div class="option" onclick="selectOption('q59', this)">b) Cruzamiento, laguna, desvío y contracarriles</div>
+                <div class="option" onclick="selectOption('q59', this)">c) Cambio, carriles de unión, contracarriles y travesía</div>
+                <div class="option" onclick="selectOption('q59', this)">d) Ninguna de las anteriores</div>
+            </div>
+        </div>
+
+        <div class="question" id="q60">
+            <h3>60. El producto de la carga en toneladas transportada por un tren de mercancías por la distancia recorrida se llama:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q60', this)">a) Tonelada bruta remolcada</div>
+                <div class="option" onclick="selectOption('q60', this)">b) Unidad de tráfico por km</div>
+                <div class="option" onclick="selectOption('q60', this)">c) Tonelada por km</div>
+                <div class="option" onclick="selectOption('q60', this)">d) Tonelada bruta completa</div>
+            </div>
+        </div>
+
+        <div class="question" id="q61">
+            <h3>61. ¿Para qué se somete el carril continuo soldado al proceso de neutralización de tensiones?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q61', this)">a) Para disminuir la dilatación del extremo del carril</div>
+                <div class="option" onclick="selectOption('q61', this)">b) Para uniformizar el estado tensional del carril</div>
+                <div class="option" onclick="selectOption('q61', this)">c) Para obtener la longitud de respiración en los extremos del carril</div>
+                <div class="option" onclick="selectOption('q61', this)">d) Para conseguir que las tensiones térmicas del carril sean nulas en su vida útil</div>
+            </div>
+        </div>
+
+        <div class="question" id="q62">
+            <h3>62. Si una plataforma ferroviaria es del tipo P2 se sabe que:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q62', this)">a) La capa de forma se compone de material tipo QS2</div>
+                <div class="option" onclick="selectOption('q62', this)">b) No es necesario subbalasto</div>
+                <div class="option" onclick="selectOption('q62', this)">c) Es necesario colocar un geotextil entre la plataforma y las capas de asiento</div>
+                <div class="option" onclick="selectOption('q62', this)">d) Ninguna de las anteriores</div>
+            </div>
+        </div>
+
+        <div class="question" id="q63">
+            <h3>63. El peralte correspondiente a una curva:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q63', this)">a) Va aumentando a lo largo de la curva de transición adyacente</div>
+                <div class="option" onclick="selectOption('q63', this)">b) Es uniforme en toda la longitud de la recta</div>
+                <div class="option" onclick="selectOption('q63', this)">c) Es independiente de la velocidad de los trenes de viajeros</div>
+                <div class="option" onclick="selectOption('q63', this)">d) Siempre tiene el mismo valor, 160 mm</div>
+            </div>
+        </div>
+
+        <div class="question" id="q64">
+            <h3>64. La velocidad de los vehículos basculantes es:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q64', this)">a) Igual a la de los vehículos convencionales</div>
+                <div class="option" onclick="selectOption('q64', this)">b) Superior a los convencionales en rectas y en curvas</div>
+                <div class="option" onclick="selectOption('q64', this)">c) Superior a los convencionales en rectas e inferior en curvas</div>
+                <div class="option" onclick="selectOption('q64', this)">d) Igual a los convencionales en rectas y superior en curvas</div>
+            </div>
+        </div>
+
+        <div class="question" id="q65">
+            <h3>65. ¿Cuál de los siguientes elementos no forma parte de la superestructura de la vía?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q65', this)">a) Carril</div>
+                <div class="option" onclick="selectOption('q65', this)">b) Balasto</div>
+                <div class="option" onclick="selectOption('q65', this)">c) Juntas soldadas</div>
+                <div class="option" onclick="selectOption('q65', this)">d) Capa de forma</div>
+            </div>
+        </div>
+
+        <div class="question" id="q66">
+            <h3>66. ¿Cuál de las siguientes traviesas es de mayor longitud?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q66', this)">a) De madera</div>
+                <div class="option" onclick="selectOption('q66', this)">b) PR-90</div>
+                <div class="option" onclick="selectOption('q66', this)">c) MR-93</div>
+                <div class="option" onclick="selectOption('q66', this)">d) Todas tienen la misma longitud</div>
+            </div>
+        </div>
+
+        <div class="question" id="q67">
+            <h3>67. ¿Cuál es el parámetro principal que caracteriza el tipo de carril?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q67', this)">a) Su peso</div>
+                <div class="option" onclick="selectOption('q67', this)">b) Su dureza</div>
+                <div class="option" onclick="selectOption('q67', this)">c) Su longitud</div>
+                <div class="option" onclick="selectOption('q67', this)">d) Ninguna de las anteriores</div>
+            </div>
+        </div>
+
+        <div class="question" id="q68">
+            <h3>68. ¿Cuál de los siguientes elementos se utiliza para definir el trazado en alzado?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q68', this)">a) Rasante</div>
+                <div class="option" onclick="selectOption('q68', this)">b) Peralte</div>
+                <div class="option" onclick="selectOption('q68', this)">c) Curva de transición</div>
+                <div class="option" onclick="selectOption('q68', this)">d) Retranqueo</div>
+            </div>
+        </div>
+
+        <div class="question" id="q69">
+            <h3>69. La relación entre una carga puntual aplicada en el contacto carril-traviesa y el descenso que se produce en la vía se llama:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q69', this)">a) Coeficiente de rigidez de la vía</div>
+                <div class="option" onclick="selectOption('q69', this)">b) Módulo de la vía</div>
+                <div class="option" onclick="selectOption('q69', this)">c) Coeficiente de balasto</div>
+                <div class="option" onclick="selectOption('q69', this)">d) Módulo de elasticidad</div>
+            </div>
+        </div>
+
+        <div class="question" id="q70">
+            <h3>70. La tensión de un carril soldado, de 5km de longitud es:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q70', this)">a) Constante a lo largo del tiempo</div>
+                <div class="option" onclick="selectOption('q70', this)">b) Variable a lo largo del tiempo</div>
+                <div class="option" onclick="selectOption('q70', this)">c) Independiente de su trazado</div>
+                <div class="option" onclick="selectOption('q70', this)">d) Constante en toda su longitud</div>
+            </div>
+        </div>
+
+        <div class="question" id="q71">
+            <h3>71. La máxima tensión en el carril se produce:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q71', this)">a) Punto de contacto llanta-carril</div>
+                <div class="option" onclick="selectOption('q71', this)">b) En el carril exterior de una curva cuando circula el tren de viajeros más rápido</div>
+                <div class="option" onclick="selectOption('q71', this)">c) En el carril exterior de una curva cuando circula el tren de mercancías más cargado</div>
+                <div class="option" onclick="selectOption('q71', this)">d) Cuando actúan las cargas estáticas, cuasiestáticas y dinámicas</div>
+            </div>
+        </div>
+
+        <div class="question" id="q72">
+            <h3>72. La tensión que aparece en el carril:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q72', this)">a) Depende del coeficiente de mantenimiento de la línea</div>
+                <div class="option" onclick="selectOption('q72', this)">b) Depende de la rigidez de la vía</div>
+                <div class="option" onclick="selectOption('q72', this)">c) Depende del tráfico que circule por la línea</div>
+                <div class="option" onclick="selectOption('q72', this)">d) Depende de todos los parámetros anteriores</div>
+            </div>
+        </div>
+
+        <div class="question" id="q73">
+            <h3>73. La resistencia transversal de la vía:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q73', this)">a) Constante en el tiempo</div>
+                <div class="option" onclick="selectOption('q73', this)">b) Depende principalmente de la resistencia del carril</div>
+                <div class="option" onclick="selectOption('q73', this)">c) Depende del coeficiente de balasto</div>
+                <div class="option" onclick="selectOption('q73', this)">d) Aumenta a medida que circula más tráfico por la vía</div>
+            </div>
+        </div>
+
+        <div class="question" id="q74">
+            <h3>74. La longitud de las curvas de transición es:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q74', this)">a) Mayor que la de la curva adyacente</div>
+                <div class="option" onclick="selectOption('q74', this)">b) Menos que la de la curva adyacente</div>
+                <div class="option" onclick="selectOption('q74', this)">c) Dependiente de la velocidad de circulación de los trenes</div>
+                <div class="option" onclick="selectOption('q74', this)">d) Independiente del peralte de la curva</div>
+            </div>
+        </div>
+
+        <div class="question" id="q75">
+            <h3>75. Cuál de las siguientes estaciones no tiene función comercial:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q75', this)">a) Terminales de contenedores</div>
+                <div class="option" onclick="selectOption('q75', this)">b) Estaciones de pasajeros</div>
+                <div class="option" onclick="selectOption('q75', this)">c) Estación clasificación</div>
+                <div class="option" onclick="selectOption('q75', this)">d) Ninguna de las anteriores</div>
+            </div>
+        </div>
+
+        <div class="question" id="q76">
+            <h3>76. ¿Qué sucede si el esfuerzo motor que realiza una locomotora supera a la fuerza de rozamiento existente entre la llanta y el carril?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q76', this)">a) El esfuerzo tractor se reduce a cero</div>
+                <div class="option" onclick="selectOption('q76', this)">b) Las llantas patinan y se paran</div>
+                <div class="option" onclick="selectOption('q76', this)">c) El esfuerzo tractor se reduce al producto del peso de la locomotora por el coeficiente de rozamiento dinámico</div>
+                <div class="option" onclick="selectOption('q76', this)">d) La locomotora aumenta su velocidad</div>
+            </div>
+        </div>
+
+        <div class="question" id="q77">
+            <h3>77. ¿Cómo se denominan a los elementos que unen los ejes a las suspensiones?</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q77', this)">a) Cajas de grasa</div>
+                <div class="option" onclick="selectOption('q77', this)">b) cojinetes</div>
+                <div class="option" onclick="selectOption('q77', this)">c) zonas de calaje</div>
+                <div class="option" onclick="selectOption('q77', this)">d) mangueta</div>
+            </div>
+        </div>
+
+        <div class="question" id="q78">
+            <h3>78. El pilotaje de emergencia es un sistema de:</h3>
+            <div class="options">
+                <div class="option" onclick="selectOption('q78', this)">a) Bloqueo</div>
+                <div class="option" onclick="selectOption('q78', this)">b) enclavamiento</div>
+                <div class="option" onclick="selectOption('q78', this)">c) seguridad</div>
+                <div class="option" onclick="selectOption('q78', this)">d) ayuda a la conducción</div>
+            </div>
+        </div>
+
+        <div class="question" id="q79">
+            <h3>79. ¿Cómo se denomina el fenómeno que sucede cuando las zapatas de frenado se adhieren a las llantas?
