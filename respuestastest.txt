@@ -1,0 +1,1019 @@
+TEST SEPTIEMBRE
+
+1.	− ¿Qué locomotora tiene menos ejes motores y mayor número de motores?
+a)	2−D−D−2
+b)	1A−B−B−A1
+c)	Bo-Bo-Bo+
+d)	1−C−C−1
+
+2.	− Con el A.S.F.A….
+a)	Todas las respuestas son falsas
+b)	No hacen falta pedales ni balizas en la vía
+c)	El sistema frena al tren si rebasa una señal+
+d)	Los maquinistas reciben en cabina la señalización y datos de ...
+
+3.	− La falta de interoperabilidad…
+a)	No se produce en la red ferroviaria española
+b)	Sólo se produce en la frontera entre España y Francia
+c)	Es menor en las líneas de vía estrecha
+d)	Disminuiría si se implantase el ERTMS+
+
+4.	− El desgaste de los carriles al paso de los trenes… (Pág. 108) (El desgaste es igual en todos los carriles)
+a)	Es mayor en un carril UIC 54 que en un UIC 60
+b)	Ninguna respuesta es cierta+
+c)	Es menor en un carril de garganta que en uno tipo Vignole
+d)	Es mayor en un carril UIC 60 que en un UIC 71
+
+5.	− En las nuevas líneas de alta velocidad…
+a)	El transporte de electricidad a lo largo de la línea se realiza a 25 kV, y la alimentación de los trenes a 50kV
+b)	No es necesario el circuito de retorno
+c)	El transporte de electricidad a lo largo de la línea se realiza a 50 kV, y la alimentación de los trenes a 25 kV+
+d)	Los maquinistas conducen con los ojos cerrados
+
+6.	− Actualmente, las traviesas de hormigón…
+a)	Son de hormigón en masa
+b)	Son todas monobloque
+c)	Son de hormigón pretensado si son bibloque
+d)	Ninguna es cierta+
+
+7.	− La catenaria compensada…
+a)	No sirve para electrificación en corriente alterna
+b)	No se puede instalar en túneles
+c)	Mantiene la tensión mecánica constante+
+d)	Mantiene la tensión eléctrica constante
+ 
+8.	− Las sujeciones elásticas… (Pág. 125)
+a)	Pueden utilizarse con traviesa polivalente+
+b)	Se deforman para igualar el peralte, pero luego se recuperan
+c)	Aprietan el carril contra el balasto
+d)	Son unos tornillos cuya cabeza sujeta el patín del carril y cuya rosca se mete en la traviesa
+
+9.	− La parte donde se produce la mayor discontinuidad en los desvíos se llama… (Pág. 238)
+a)	Garganta
+b)	Pata de liebre
+c)	Laguna+
+d)	Cabeza
+
+10.	− Una forma de aumentar la velocidad de paso por vía desviada en un desvío es…
+(Pág. 235,238)
+a)	Aumentar el ángulo de cruzamiento
+b)	Poner peralte en la vía desviada
+c)	Dar a la laguna trazado de clotoide
+d)	Ninguna de las anterior 
+EXAMEN 10 FEBRERO 2010
+1.	Estas en España y ves pasar un tren:
+a)	Lo normal es que pase con retraso
+b)	Lo normal es que sea una locomotora tirando de coches.
+c)	Lo normal es que sea un tren de dos pisos
+d)	Lo normal es que sea un automotor.+
+
+2.	El elastómero se utiliza:
+a)	En vía en placa+
+b)	En cuñas de transición
+c)	En juntas
+d)	En el apoyo de la aguja sobre la contraaguja
+
+3.	¿Qué sistema de señalización y control de tráfico tiene cantones móviles?
+a)	ERTMS nivel 3+
+b)	ERTMS nivel 2
+c)	ERTMS nivel 1
+d)	Cantones ¿Qué?
+
+4.	Contrato programa
+a)	Es la base de la relación de las compañías ferroviarias privadas y el estado durante el siglo XIX
+b)	Es el déficit de los servicios públicos de transporte ferroviario que lo debe financiar el estado
+c)	Es una herramienta que sirve para evaluar el déficit de RENFE
+•	Recoge compromisos por parte del estado y por parte de RENFE.+
+
+5.	En el proceso de fabricación de los carriles:
+a)	El enfriamiento debe ser rápido y uniforme para conseguir un buen acero.
+b)	Hay que aportar más carbono que hierro para conseguir un buen acero
+c)	El tiempo de enfriamiento del patín y el alma es mayor que lo que tarda en enfriarse la cabeza.
+d)	El tiempo de enfriameinto del patín y de la cabeza es mayor que el que tarda el alma en enfriarse.+
+
+6.	¿Cuál de las siguientes líneas tendrá mayor capacidad de transporte según el sistema de comunicación y control de tráfico?
+a)	Bloqueo automatico banalizado en vía doble+
+b)	Bloque automatico en via única
+c)	Bloqueo telefónico en via doble
+d)	Bloqueo automatico unidireccional en via doble
+ 
+7.	¿En qué se beneficiaría el ferrocarril de Galileo?
+a)	En nada porque ese señor ya se ha muerto
+b)	En el desarrollo del más moderno sistema de señalización y control de trafico+
+c)	Ayudaría a la implementación del ERTMS nivel 1
+d)	En el descubrimiento de la ley de peralte
+
+8.	El AVE Madrid−Sevilla
+a)	Funciona con una tensión de traccion de 3000 voltios
+b)	Funciona con corriente alterna+
+c)	Funciona con conrriente continua
+d)	Funciona con una tensión de 15000 voltios
+
+9.	¿Qué sistemas pueden funcionar sin ningún cable de señalización ni de comunicación a lo largo de la vía?
+a)	ERTMS nivel 1 y 3
+b)	ERTMS nivel 2 y 3+
+c)	ERTMS nivel 1 y 2
+d)	Ninguno de ellos
+
+10.	El radio de bombeo
+a)	Es mayor en las curvas
+b)	Permite el drenaje superficial de la plataforma
+c)	Es menor en el carril peraltado
+d)	Permite una mayor duración del carril+ 
+RECOPILACIÓN PREGUNTAS TIPO TEST FFCC
+-	El juego de la vía…
+a.	no se implanta en las rectas
+b.	todas son falsas+
+c.	debe aumentarse en las rectas
+d.	es mayor que el ancho de vía
+
+
+-	Siendo iguales en todo lo demás, la locomotora B tiene sus motores suspendidos, y la locomotora A, no:
+a.	A será más agresiva a la vía que B+
+b.	Todas son verdaderas
+c.	El peso de los motores de A está amortiguado, y el peso de los motores de B, no
+d.	B tendrá menor porcentaje de peso suspendido que A
+
+
+-	Si un carril tiene una discontinuidad geométrica en planta, la vía tendrá…
+a.	Un fallo de nivelación longitudinal
+b.	Alabeo
+c.	Una flecha+
+d.	Un fallo de nivelación transversal
+
+
+-	Los fallos admisibles en la continuidad geométrica en planta y alzado en las líneas de ffcc son del orden de:
+a.	m
+b.	km
+c.	dm
+d.	mm+
+
+
+-	¿En qué capa de la superestructura se realiza el posicionado de la vía?
+a.	En el anticontaminante
+b.	En el subbalasto
+c.	En la capa de forma
+d.	En el balasto+
+
+
+-	¿Qué locomotora tiene menos motores y más ejes portantes?
+a.	1BoBo1
+b.	A1A1A1A
+c.	2BB2+
+d.	1D1
+ 
+-	¿Para qué tipo de línea compraría trenes pendulares?
+a.	Para una línea de alta velocidad
+b.	Todas son falsas
+c.	Para una línea de trazado sinuoso+
+d.	Es indiferente
+
+
+-	A igual peso adherente, ¿Qué automotor será más agresivo a la vía?
+a.	CC-22-22-22-CC
+b.	B2-B2-B2-B2-B2+
+c.	BoBo-22-BoBo-22-BoBo-22-BoBo-22-BoBo
+d.	BB-22-BB-22-BB-22-BB
+
+
+-	¿Cuál es el freno principal de un tren?
+a.	El freno neumático+
+b.	El freno eléctrico
+c.	El freno de estacionamiento
+d.	El freno de emergencia
+
+
+-	El ancho de la vía se mide…
+a.	Entre las cabezas+
+b.	De alma a alma
+c.	Entre los patines
+d.	Entre las gargantas
+
+
+-	A igual longitud, ¿Qué vehículo tendrá mayor empate?
+a.	Un remolque TALGO
+b.	Un coche de bogies
+c.	El empate es indiferente del tipo de vehículo
+d.	Un coche de ejes+
+
+
+-	El bateo de la vía…
+a.	Compacta la capa de subbalasto
+b.	Se realiza antes de instalar la vía sobre las capas de asiento
+c.	Debe dejar el balasto sin huecos
+d.	Ninguna es cierta+ 
+-	¿Qué sistema de alimentación separa las funciones de sustentación y de alimentación?
+a.	Tercer carril
+b.	Catenaria+
+c.	Línea aérea simple
+d.	Catenaria rígida
+
+
+
+
+-	¿Qué locomotora tiene más motores y menos ejes motores?
+a.	1BoBo1+
+b.	2BB2
+c.	1D1
+d.	2CC2
+
+
+
+
+-	Si una locomotora diésel, remolcando un tren de mercancías, activa el freno eléctrico…
+a.	Frenarán todos los ejes del tren
+b.	Frenarán los ejes portantes
+c.	Usará la energía generada para tracción
+d.	Disipará la energía generada+
+
+
+
+
+-	¿Qué tren tendrá más porcentaje de peso no suspendido?
+a.	Aquel que tenga el motor apoyado en el bastidor y en el eje
+b.	Es indiferente
+c.	Aquel que tenga los motores en los ejes+
+d.	Aquel que tenga los motores en el bastidor de la caja
+
+
+
+
+-	¿Para qué tipo de línea sería más apropiado compras trenes pendulares o basculantes?
+a.	Para una línea de ancho ibérico
+b.	Para una línea con curvas de radio reducido+
+c.	Para una línea de alta velocidad
+d.	Para una línea de ancho internacional
+ 
+-	Siendo iguales en todo lo demás, la locomotora B tiene sus motores suspendidos, y la locomotora A no:
+a.	El peso de los motores de A no estará amortiguado, y el peso de los motores de B, sí
+b.	B será menos agresiva a la vía que A
+c.	A tendrá menor porcentaje de peso suspendido que B
+d.	Todas son correctas+
+
+
+
+
+-	¿Qué trenes inclinan la caja hacia el interior de las curvas de forma natural (con suspensiones pasivas)?
+a.	Los trenes regionales
+b.	Los trenes basculantes
+c.	Los trenes pendulares+
+d.	Los trenes convencionales
+
+
+
+
+-	A igual peso adherente, ¿qué automotor será más agresivo a la vía?
+a.	B2-B2-B2-B2-B2-B2
+b.	BB-22-BB-22-BB-22-BB
+c.	BB-22-22-22-22-BB+
+d.	A1A1-A1A1-A1A1-A1A1-A1A1-A1A1
+
+
+
+
+-	Estás en España y ves pasar un tren:
+a.	Lo normal es que pase con retraso
+b.	Lo normal es que sea una locomotora tirando de coches
+c.	Lo normal es que sea un tren de dos pisos
+d.	Lo normal es que sea un automotor+
+
+
+-	El elastómero se utiliza:
+a.	En vía en placa+
+b.	En cuñas de transición
+c.	En juntas
+d.	En el apoyo de la aguja sobre la contraaguja
+ 
+-	¿Qué sistema de señalización y control de tráfico tiene cantones móviles?
+a.	ERTMS nivel 3+
+b.	ERTMS nivel 2
+c.	ERTMS nivel 1
+d.	Cantones
+
+
+-	Contrato programa:
+a.	Es la base de la relación de las compañías ferroviarias privadas y el estado durante el siglo XIX
+b.	Es el déficit de los servicios públicos de transporte ferroviario que lo debe financiar el estado
+c.	Es una herramienta que sirve para evaluar el déficit de RENFE
+d.	Recoge compromisos por parte del estado y por parte de RENFE+
+
+
+-	En el proceso de fabricación de los carriles:
+a.	El enfriamiento debe ser rápido y uniforme para conseguir un buen acero
+b.	Hay que aportar más carbono que hierro para conseguir un buen acero
+c.	El tiempo de enfriamiento del patín y el alma es mayor que lo que tarda en enfriarse la cabeza
+d.	El tiempo de enfriamiento del patín y la cabeza es mayor que lo que tarda en enfriarse el alma+
+
+
+-	¿Cuál de las siguientes líneas tendrá mayor capacidad de transporte según el sistema de comunicación y control de tráfico?
+a.	Bloqueo automático banalizado en vía doble+
+b.	Bloqueo automático en vía única
+c.	Bloqueo telefónico en vía doble
+d.	Bloque automático unidireccional en vía doble
+
+
+-	¿en qué se beneficiará el ferrocarril de Galileo?
+a.	En nada
+b.	En el desarrollo del más moderno sistema de señalización y control de tráfico+
+c.	Ayudaría a la implementación del ETRMS nivel 1
+d.	En el descubrimiento de la ley del peralte
+ 
+-	El AVE Madrid-Sevilla:
+a.	Funciona con una tensión de tracción de 3000V
+b.	Funciona con corriente alterna+
+c.	Funciona con corriente continua
+d.	Funciona con una tensión de 15000V
+
+
+-	¿Qué sistemas pueden funcionar sin ningún cable de señalización ni de comunicación a lo largo de la vía?
+a.	ETRMS nivel 1 y 3
+b.	ERTMS nivel 2 y 3+
+c.	ERTMS nivel 1 y 2
+d.	Ninguno de ellos
+
+
+-	El radio de bombeo
+a.	Es mayor en las curvas
+b.	Permite el drenaje superficial de la plataforma
+c.	Es menor en el carril peraltado
+d.	Permite una mayor duración del carril+
+
+
+-	¿Qué locomotora tienes menos ejes motores y mayor número de motores?
+a.	2-D-D-2
+b.	1A-B-B-A1
+c.	Bo-Bo-Bo-Bo+
+d.	1-C-C-1
+
+
+-	Con el ASFA
+a.	Todas las respuestas son correctas
+b.	No hacen falta pedales ni balizas en la vía
+c.	El sistema frena al tren si rebasa una señal+
+d.	Los maquinistas reciben en cabina la señalización y datos de cabina
+
+
+-	La falta de interoperabilidad
+a.	No se produce en la red ferroviaria española
+b.	Sólo se produce en la frontera entre España y Francia
+c.	Es menor en las líneas de vía estrecha
+d.	Disminuiría si se implantase el ERTMS+
+ 
+-	El desgaste de los carriles al paso de los trenes:
+a.	Es mayor en un UIC-54 que en un UIC-60
+b.	Todas son correctas+
+c.	Es menor en un carril de garganta que uno tipo vignole
+d.	Es mayor en un carril UIC-60 que en un UIC-71
+
+
+-	En las nuevas líneas de alta velocidad:
+a.	El transporte de electricidad a lo largo de la línea se realiza a 25 kV y la alimentación de los trenes a 50 kV
+b.	No es necesario circuito de retorno
+c.	El transporte de electricidad a lo largo de la línea se realiza a 50 kV y la alimentación de los trenes a 25 kV+
+d.	Los maquinistas conducen con los ojos cerrados
+
+
+-	Actualmente, las traviesas de hormigón
+a.	Son de hormigón en masa
+b.	Son todas monobloque
+c.	Son de hormigón pretensado si son bibloque+
+d.	Ninguna es cierta
+
+
+-	La catenaria compensada
+a.	No sirve para electrificación en corriente alterna
+b.	No se puede instalar en túneles
+c.	Mantiene la tensión mecánica constante+
+d.	Mantiene la tensión eléctrica constante
+
+
+-	Las sujeciones elásticas
+a.	Pueden utilizarse con traviesa polivalente+
+b.	Se deforman para igualar el peralte, pero luego se recuperan
+c.	Aprietan el carril contra el balasto
+d.	Son unos tornillos cuya cabeza sujeta el patín del carril y cuya rosca se mete en la traviesa
+
+
+-	La parte donde se produce mayor discontinuidad en los desvíos se llama:
+a.	Garganta
+b.	Pata de liebre
+c.	Laguna+
+d.	Cabeza
+ 
+-	Una forma de aumentar la velocidad de paso por vía desviada en un desvío es:
+a.	Aumentar el ángulo de cruzamiento
+b.	Poner peralte en la vía desviada+
+c.	Dar a la laguna trazado de clotoide
+d.	Ninguno de los anteriores
+
+
+-	El eje montado en el ffcc:
+a.	Gira un número de vueltas distinto que las ruedas para adaptarse a la diferencia de longitud entre carril exterior e interior
+b.	Permite que las ruedas giren independientes para adaptarse a la curva
+c.	Ninguna
+d.	Presenta algunos problemas a la hora de pasar por las curvas+
+
+
+-	¿Qué traviesa mantiene mejor la geometría?
+a.	A189+
+b.	RS
+c.	BR94
+d.	Todas por igual
+
+
+-	En una línea de alta velocidad de vía doble, ¿Qué aparatos de vía usaría para pasar de una vía a otra y poder circular así en cada una en ambos sentidos?
+a.	Escape doble+
+b.	Puente transbordador
+c.	Escape cruzado
+d.	Ninguna
+
+
+
+-	Número de traviesas por metro
+a.	0.6+
+b.	1
+c.	1.5
+d.	1.66
+
+
+-	¿Qué es el peso no suspendido?
+a.	Los ejes+
+b.	Las amortiguaciones
+c.	Los ejes portantes
+d.	Los ejes motores
+ 
+-	El sistema de señalización y control del tráfico ferroviario
+a.	No es necesario si la línea es de doble vía
+b.	Ninguna es correcta+
+c.	Se aplicó en las primeras líneas ferroviarias
+d.	Se va extendiendo poco a poco a todas las líneas
+
+
+
+-	Casi toda la red ferroviaria en España estaba construida en:
+a.	1992
+b.	1900+
+c.	1950
+d.	1848
+
+
+-	¿Qué sistema de control de tráfico se basa en la transmisión puntual de información para controlar el tráfico en la línea?
+a.	Ninguno 
+b.	Bloqueo eléctrico manual
+c.	ETRMS 3
+d.	El bloqueo automático +
+
+
+-	En un coche convencional de viajeros, el peso remolcado por viajero es de unos:
+a.	1000 kg+
+b.	100 kg
+c.	10 kg
+d.	Ninguna
+
+
+-	El carril UIC 60 tiene una sección de:
+a.	69.34 cm2
+b.	60 cm2
+c.	76.86 cm2+
+d.	90.79 cm2
+
+
+-	Un viajero que va en un tren convencional sufre una aceleración centrífuga de 0,3m/s2
+a.	Hay insuficiencia de peralte+
+b.	Hay exceso de peralte
+c.	El tren circula a una velocidad superior a la de la curva
+d.	El pasajero sufre una aceleración al límite de comodidad
+ 
+-	Un pasajero de un tren convencional sufre una aceleración transversal compensada de
+0.85 m/s2:
+a.	Hay insuficiencia de peralte
+b.	Hay exceso de peralte+
+c.	El tren circula a una velocidad superior a la de la curva
+d.	El pasajero sufre una aceleración superior al límite de comodidad
+
+
+-	Un tren basculante sufre una aceleración transversal de 0.95 m/s2:
+a.	Hay insuficiencia de peralte
+b.	Hay exceso de peralte
+c.	El tren circula a una velocidad superior a la de la curva+
+d.	Las suspensiones compensarían esta aceleración para que el pasajero no sufra una aceleración molesta
+
+
+-	¿Por qué está limitado el peralte de las curvas?
+a.	Para limitar la velocidad en las curvas
+b.	Por el mayor desgaste que sufre el carril interior en las curvas
+c.	Por la mayor aceleración que sufren los pasajeros hacia el interior de la curva si el tren está parado+
+
+
+
+
+-	Los trenes basculantes son más sensibles a:
+a.	La aceleración centrífuga no compensada hacia el interior de las curvas
+b.	La aceleración centrífuga no compensada hacia el exterior de las curvas+
+c.	Aceleración vertical
+d.	Aceleración longitudinal
+
+
+-	En un bogie, ¿Cómo se llama la distancia que va desde el punto de contacto de la pestaña de una de las ruedas con el carril al plano que forman las otras tres ruedas?
+a.	Retranqueo
+b.	Insuficiencia de peralte
+c.	Alabeo+
+d.	Pendiente diagrama de peraltes
+ 
+-	¿Qué limita el coeficiente de calidad de una curva de transición?
+a.	Velocidad de la curva de transición
+b.	Parámetro de la clotoide+
+c.	Longitud del acuerdo
+d.	El radio
+
+
+-	¿De qué parámetros depende el valor del retranqueo?
+a.	De la longitud de la recta y el de radio de la curva circular
+b.	De la longitud de la curva de transición y la velocidad de diseño
+c.	De la longitud de la curva de transición y del radio de la curva circular+
+d.	Ninguna es correcta
+
+
+-	Un desvío consta de:
+a.	Cruzamiento, cambio, carriles de unión y bloqueos
+b.	Cruzamiento, laguna, desvío y contracarriles+
+c.	Cambio, carriles de unión, contracarriles y travesía
+d.	Ninguna de las anteriores
+
+
+-	El producto de la carga en toneladas transportada por un tren de mercancías por la distancia recorrida se llama:
+a.	Tonelada bruta remolcada
+b.	Unidad de tráfico por km
+c.	Tonelada por km+
+d.	Tonelada bruta completa
+
+
+-	¿Para qué se somete el carril continuo soldado al proceso de neutralización de tensiones?
+a.	Para disminuir la dilatación del extremo del carril
+b.	Para uniformizar el estado tensional del carril+
+c.	Para obtener la longitud de respiración en los extremos del carril
+d.	Para conseguir que las tensiones térmicas del carril sean nulas en su vida útil
+
+
+-	Si una plataforma ferroviaria es del tipo P2 se sabe que:
+a.	La capa de forma se compone de material tipo QS2
+b.	No es necesario subbalasto
+c.	Es necesario colocar un geotextil entre la plataforma y las capas de asiento+
+d.	Ninguna de las anteriores
+ 
+-	El peralte correspondiente a una curva:
+a.	Va aumentando a lo largo de la curva de transición adyacente+
+b.	Es uniforme en toda la longitud de la recta
+c.	Es independiente de la velocidad de los trenes de viajeros
+d.	Siempre tiene el mismo valor, 160 mm
+
+
+-	La velocidad de los vehículos basculantes es:
+a.	Igual a la de los vehículos convencionales
+b.	Superior a los convencionales en rectas y en curvas
+c.	Superior a los convencionales en rectas e inferior en curvas
+d.	Igual a los convencionales en rectas y superior en curvas+
+
+
+-	¿Cuál de los siguientes elementos no forma parte de la superestructura de la vía?
+a.	Carril
+b.	Balasto
+c.	Juntas soldadas
+d.	Capa de forma+
+
+-	¿Cuál de las siguientes traviesas es de mayor longitud?
+a.	De madera
+b.	PR-90
+c.	MR-93+
+d.	Todas tienen la misma longitud
+
+
+-	¿Cuál es el parámetro principal que caracteriza el tipo de carril?
+a.	Su peso+
+b.	Su dureza
+c.	Su longitud
+d.	Ninguna de las anteriores
+
+
+-	¿Cuál de los siguientes elementos se utiliza para definir el trazado en alzado?
+a.	Rasante+
+b.	Peralte
+c.	Curva de transición
+d.	Retranqueo
+ 
+-	La relación entre una carga puntual aplicada en el contacto carril-traviesa y el descenso que se produce en la vía se llama:
+a.	Coeficiente de rigidez de la vía+
+b.	Módulo de la vía
+c.	Coeficiente de balasto
+d.	Módulo de elasticidad
+
+
+-	La tensión de un carril soldado, de 5km de longitud es:
+a.	Constante a lo largo del tiempo
+b.	Variable a lo largo del tiempo+
+c.	Independiente de su trazado
+d.	Constante en toda su longitud
+
+
+-	La máxima tensión en el carril se produce:
+a.	Punto de contacto llanta-carril
+b.	En el carril exterior de una curva cuando circula el tren de viajeros más rápido+
+c.	En el carril exterior de una curva cuando circula el tren de mercancías más cargado
+d.	Cuando actúan las cargas estáticas, cuasiestáticas y dinámicas
+
+
+-	La tensión que aparece en el carril:
+a.	Depende del coeficiente de mantenimiento de la línea
+b.	Depende de la rigidez de la vía
+c.	Depende del tráfico que circule por la línea
+d.	Depende de todos los parámetros anteriores+
+
+
+-	La resistencia transversal de la vía:
+a.	Constante en el tiempo
+b.	Depende principalmente de la resistencia del carril
+c.	Depende del coeficiente de balasto+
+d.	Aumenta a medida que circula más tráfico por la vía
+
+
+-	La longitud de las curvas de transición es:
+a.	Mayor que la de la curva adyacente
+b.	Menos que la de la curva adyacente
+c.	Dependiente de la velocidad de circulación de los trenes+
+d.	Independiente del peralte de la curva
+ 
+-	Cuál de las siguientes estaciones no tiene función comercial:
+a.	Terminales de contenedores
+b.	Estaciones de pasajeros
+c.	Estación clasificación+
+d.	Ninguna de las anteriores
+
+
+-	¿Qué sucede si el esfuerzo motor que realiza una locomotora supera a la fuerza de rozamiento existente entre la llanta y el carril?
+a.	El esfuerzo tractor se reduce a cero
+b.	Las llantas patinan y se paran
+c.	El esfuerzo tractor se reduce al producto del peso de la locomotora por el coeficiente de rozamiento dinámico+
+d.	La locomotora aumenta su velocidad
+
+
+-	¿Cómo se denominan a los elementos que unen los ejes a las suspensiones?
+a.	Cajas de grasa
+b.	cojinetes
+c.	zonas de calaje
+d.	mangueta+
+
+
+-	El pilotaje de emergencia es un sistema de:
+a.	Bloqueo
+b.	enclavamiento
+c.	seguridad+
+d.	ayuda a la conducción
+
+
+-	¿Cómo se denomina el fenómeno que sucede cuando las zapatas de frenado se adhieren a las llantas?
+a.	Patinaje
+b.	Bloqueo+
+c.	frenado rápido
+d.	ninguna de las anteriores
+
+
+-	Si un tren que circula por una curva está en situación de exceso de peralte, se cumple que:
+a.	El tren circula a menos de 60 km/h
+b.	Es un tren de mercancías
+c.	El carril interior sufre una carga mayor que el exterior+
+ 
+d.	Ninguna de las anteriores
+-	Si la aceleración que sufre el viajero en la curva es menor que la aceleración que sufre el vehículo:
+a.	Se trata de un tren con coches basculantes
+b.	Es necesario circular a menor velocidad
+c.	Se trata de una situación de exceso de peralte+
+d.	Ninguna de las anteriores
+
+
+-	Si usted estuviera construyendo una línea de alta velocidad, instalaría traviesas de hormigón pretensado porque:
+a.	Son más fáciles de montar y se fisuran poco
+b.	Son más baratas que las de madera
+c.	Son más pesadas y conservan mejor la geometría de la vía+
+d.	Debido a su robustez permite que la capa de balasto sea menor
+
+
+-	Cuando un carril se somete al proceso de neutralización de tensiones:
+a.	La tensión térmica es nula en todo el carril+
+b.	La longitud de respiración es distinta en los dos extremos
+c.	Aparecen tensiones térmicas de tracción en el carril
+d.	Aparecen tensiones térmicas de compresión en el carril
+
+
+-	En los desvíos tradicionales, la parte móvil se llama:
+a.	Las agujas+
+b.	Los carriles de unión
+c.	El cruzamiento
+d.	El cambio
+
+
+-	El alabeo correspondiente a una curva de transición:
+a.	Es constante a lo largo de todo su desarrollo
+b.	Es el mismo que el de la recta contigua
+c.	Es variable a lo largo de todo su desarrollo+
+d.	Siempre tiene el mismo valor, 160 mm
+
+
+-	Las juntas:
+a.	Dan continuidad a la vía
+b.	Han de permitir la continuidad eléctrica
+c.	Desaparecen si se utiliza carril soldado+
+d.	Se distancian más en las líneas de alta velocidad para mejorar la rodadura
+ 
+-	La mayor longitud del carril exterior en las curvas se compensa con:
+a.	El juego de la vía
+b.	El semiancho
+c.	La inclinación 1/20 del perfil de las ruedas, que coincide con la del carril+
+d.	El desplazamiento lateral del eje del carril
+
+
+-	Las medidas de los anchos de vía internacional, ibérico y vía estrecha son:
+a.	1668, 1435 y 1000 mm
+b.	1668, 1435 y anchos de vía en torno a un metro, e incluso inferiores+
+c.	1435, 1668 y todos los anchos inferiores al internacional
+d.	1668, 1435 y entre 1000 y 750 mm
+
+
+-	El movimiento de lazo:
+a.	Se produce tras el paso de un tren por una curva
+b.	No tiene que ver con la conioidad de las ruedas
+c.	Es debido al juego de la vía
+d.	Es un movimiento senoidal de gran amplitud+
+
+
+-	Usted se encuentra participando en la construcción del metro ligero de granada, ¿Qué tipo de carril utilizaría?
+a.	El Vignole o de patín
+b.	El de garganta+
+c.	El carril urbano
+d.	Carril de doble cabeza
+
+
+-	La inclinación del carril:
+a.	Mejora el contacto entre rueda y carril y aumenta la estabilidad+
+b.	Es de 1/20 en las curvas
+c.	Permite la introducción del peralte en las curvas
+d.	Sirve para compensar la fuerza centrífuga
+
+
+-	La tensión en un carril continuo soldado, de 5 km de longitud, es:
+a.	Constante a lo largo del tiempo
+b.	Variable a lo largo del tiempo+
+c.	Independiente de su trazado
+d.	Constante en toda su longitud
+ 
+-	Por interoperabilidad se entiende:
+a.	El conjunto de requisitos que han de cumplir las nuevas líneas de alta velocidad
+b.	La facilidad para cambiar de un tren a otro
+c.	La unificación del sistema ferroviario europeo+
+d.	La intermodalidad aplicada al ferrocarril
+
+
+-	El pandeo vertical de la vía:
+a.	Es independiente del peso de la vía
+b.	Es independiente de las cargas de tráfico
+c.	Es independiente del tipo de carril
+d.	Es independiente del tipo de traviesas+
+
+
+-	¿Qué ventajas tiene utilizar la vía en placa respecto a la vía tradicional?
+a.	Menos ruidosa, más barata y más rápida de construir
+b.	Evita la construcción de transiciones en las obras de fábrica, dura más y absorbe mayores cargas+
+c.	Permite utilizar secciones menores en los túneles, absorbe mayores cargas y facilita el drenaje
+d.	Es más barata, adecuada para su instalación en terrenos donde se puedan producir asientos y adecuada para líneas de alta velocidad
+
+
+-	En los desvíos de alta velocidad:
+a.	No se utilizan patas de liebre
+b.	Se disminuye la laguna
+c.	Se disminuye la tangente
+d.	Se aumenta la longitud de la vía desviada+
+
+
+-	La vía en placa se construye:
+a.	Hormigonando los espacios entre las traviesas
+b.	Mediante losas prefabricadas en las que se anclan las traviesas+
+c.	Sustituyendo el balasto por una losa de hormigón
+d.	Hormigonando el balasto
+
+
+-	En las líneas de alta velocidad:
+a.	No es suficiente la señalización lateral+
+b.	Los cantones son más pequeños
+c.	Las señales se activan al paso de los trenes
+ 
+d.	Se controla la posición del tren desde el centro de control de mando
+-	Las cajas de grasa:
+a.	Se encuentran por encima de la suspensión
+b.	Se sitúan en los extremos del eje ferroviario+
+c.	Facilitan la rodadura de las ruedas de acero
+d.	No son necesarias en los trenes de alta velocidad
+
+
+-	¿Qué función tiene el juego de la vía?
+a.	Permitir que los trenes puedan cambiar de vía
+b.	Permitir el establecimiento de distintos itinerarios entre dos estaciones
+c.	Mejorar la inscripción del eje en las curvas+
+d.	Evitar el desgaste de la llanta por el contacto con el carril
+
+
+-	¿Qué características debe tener una buena vía ferroviaria?
+a.	Dureza, rigidez y ancho constante
+b.	Robustez, elasticidad y continuidad geométrica+
+c.	Continuidad geométrica, resistencia y continuidad eléctrica
+d.	Sección adecuada, perfecta alineación geométrica y elasticidad
+
+
+-	¿Qué son las manguetas?
+a.	Una parte de los ejes+
+b.	Una parte del sistema de mando múltiple del material remolcado
+c.	El conducto de la transmisión al motor
+d.	Todas son falsas
+
+
+-	El sistema de freno principal de un tren convencional:
+a.	Actúa sobre los bogies intermedios
+b.	Ninguna es cierta
+c.	Actúa sobre los ejes portantes
+d.	Actúa sobre los ejes motores+
+
+
+-	¿Qué trenes tienen el centro de gravedad por encima de las suspensiones?
+a.	Los pendulares+
+b.	Los convencionales
+c.	Todos
+d.	Los basculantes 
+-	El problema de inscripción del eje montado en curva:
+a.	Es mayor en la red de ancho métrico que en la red de alta velocidad
+b.	Es mayor en la red de ancho ibérico que en la red de alta velocidad+
+c.	Es indiferente respecto al ancho de vía
+d.	Es menor en la red de ancho ibérico que en la red de alta velocidad
+
+
+-	En España…
+a.	Las líneas de alta velocidad están electrificadas y las convencionales no
+b.	Las líneas convencionales están electrificadas en corriente alterna y las de alta velocidad en corriente continua
+c.	Los trenes diésel pueden circular por las líneas electrificadas+
+d.	Todas son verdaderas
+
+
+-	Después de la guerra civil española…
+a.	El estado compró las líneas ferroviarias de vía estrecha
+b.	El estado emitió la primera ley de ferrocarriles
+c.	El estado compró RENFE
+d.	El estado compró las líneas ferroviarias de ancho ibérico+
+
+
+-	A igual peso por eje motor, ¿Qué locomotora tiene más peso adherente?
+a.	1CoCo1+
+b.	A1AA1A
+c.	1BoBo1
+d.	2BB2
+
+
+-	Siendo iguales en todo lo demás, la locomotora A tiene sus motores suspendidos, y la locomotora B no:
+a.	Todas son falsas+
+b.	A será más agresiva a la vía que B
+c.	B tendrá mayor porcentaje de peso amortiguado que A
+d.	El peso de los motores de B estará amortiguado y el peso de los motores de A no
+
+
+-	Si un tren está formado por una doble composición de automotores:
+a.	Podrá circular en un solo sentido
+b.	Tendrá la mitad de adherencia que un solo automotor
+c.	Tendrá la mitad de peso adherente que un solo automotor
+d.	Se podrá dividir en dos trenes independientes+ 
+-	¿Qué parte de un vehículo es peso no suspendido?
+a.	El bastidor
+b.	La caja
+c.	Los aparatos de tracción y choque
+d.	Los ejes+
+
+
+-	Automotor 3 coches sobre bogies de 2 ejes, 4 motores y 6 ejes motores.
+¿Denominación?
+a.	BoBo-A11A-BoBo
+b.	Bo1A-A11A-A1Bo
+c.	B11-A11A-B11+
+d.	A1A1-1111-1A1A
+
+
+-	La menor capacidad de transporte de las líneas de vía estrecha se debe principalmente
+a…
+a.	El menor ancho de vía
+b.	La peor inscripción del eje ferroviario en la vía estrecha
+c.	La inestabilidad de los trenes de vía estrecha en las curvas
+d.	Los parámetros de diseño que se adoptaron para su construcción+
+
+
+-	Las sujeciones elásticas:
+a.	Pueden utilizarse con traviesa polivalente+
+b.	Se deforman para igualar el peralte pero luego se recuperan
+c.	Aprietan el carril contra el balasto
+d.	Solamente utilizan tirafondos
+
+
+-	La catenaria compensada…
+a.	No se puede instalar en túneles
+b.	Mantiene la tensión mecánica constante+
+c.	Mantiene la tensión eléctrica constante
+
+
+-	¿Qué locomotora tiene menos ejes motores y más motores?
+a.	2-D-D-2
+b.	Bo-Bo-Bo+
+c.	1A-B-B-A1
+d.	1-C-C-1
+ 
+-	Si desciende la temperatura ambiente:
+a.	El estado tensional de la vía no dependerá del estado anterior
+b.	La zona neutra de la vía entrará en compresiones
+c.	La zona neutra entrará en tracciones+
+d.	La vía se acortará
+
+
+-	Cuando se produce la dilatación del carril en la vía soldada:
+a.	Las sujeciones elásticas permiten que el carril se mueva
+b.	La vía se mueve en los extremos+
+c.	El peso de los carriles hace que la dilatación sea uniforme
+d.	Las traviesas se mueven sobre el balasto
+
+
+-	Si usted acciona un desvío convencional, se moverán…
+a.	La aguja curva y la contraaguja curva
+b.	La aguja curva y la aguja recta
+c.	La contraaguja recta y la aguja recta
+d.	La aguja curva y el talón de la aguja recta+
+
+
+-	¿Qué aparato de vía permite a un tren tomar mayor variedad de trayectorias?
+a.	Travesía de unión simple
+b.	Desvío sencillo
+c.	Travesía de unión doble
+d.	Desvío doble+
+
+
+-	¿Cuál de las siguientes líneas tendrá mayor capacidad de transporte?
+a.	Bloqueo automático unidireccional en vía doble
+b.	Bloque automático banalizado en vía doble+
+c.	Bloqueo telefónico en vía doble
+d.	Bloqueo automático en vía única
+
+
+-	Con el ASFA:
+a.	Todas son falsas
+b.	No hacen falta pedales ni balizas en la vía
+c.	El sistema frena al tren si rebasa una señal+
+d.	Se reciben en cabina señalización y datos de forma continua
+ 
+-	¿Qué tipo de traviesa tendrá menor coeficiente de seguridad frente al pandeo?
+a.	Monobloque con gran radio
+b.	Monobloque con pequeño radio
+c.	Bibloque con pequeño radio+
+d.	Monobloque en recta
+
+
+-	¿Qué tren elegiría para una línea con mucha demanda y destinos?
+a.	Doble tracción
+b.	Automotores con muchos coches
+c.	Tren convencional con muchos coches+
+
+-	¿Qué tipo de escape usaría en una línea de alta velocidad?
+a.	Escape simple
+b.	Escape cruzado
+c.	Escape doble+
+d.	Ninguna de las anteriores
+
+
+-	En una vía con 3 carriles, ¿Dónde se coloca el andén?
+a.	Al lado de uno
+b.	Al lado de dos+
+c.	En medio
+d.	No puede colocarse andén
+
+
+-	Sistema tren-tierra (TT):
+a.	La información se da por teléfono
+b.	Solo información entre estaciones
+c.	Sistema mixto (radio y cable)+
+d.	Sistema de control de tráfico automático
+
+
+-	Porcentaje del coste en el mantenimiento del cercanías:
+a.	10%+
+b.	6%
+c.	75%
+d.	35%
+
+-	¿Qué fenómeno produce la degradación (colmatación) del balasto?
+a.	Meteorización
+b.	Existencia de áridos finos
+c.	El paso constante de los trenes y la acción del agua.+ 
+.-	Aigual pesoadherente,¿quéautomotor serámenosagresivoa la vía?
+a.	CoCo-22-22-CoCo-22-22-CoCo.+
+b.	CA1A1-A1A1-A1A1-A1A1-A1A1
+c.	BoBo-22-BoBo-22-BoBo-22-BoBo
+d.	B2-22-B2-22-B2-22-B2
