@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Ferrocarriles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .options {
+            margin-top: 10px;
+        }
+        .option {
+            display: block;
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #eee;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        .option:hover {
+            background-color: #f5f5f5;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .question-correct .question-title {
+            color: green;
+            font-weight: bold;
+        }
+        .question-incorrect .question-title {
+            color: red;
+            font-weight: bold;
+        }
+        .controls {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .stats {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .modal-content input {
+            width: 80%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .progress-bar {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        .progress {
+            height: 20px;
+            background-color: #4CAF50;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .checkbox-container {
+            margin: 15px 0;
+            text-align: left;
+            padding-left: 20px;
+        }
+        .no-idea-button {
+            background-color: #ff9800;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 200px;
+        }
+        /* Panel lateral de preguntas */
+        .question-panel {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 80px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none; /* Inicialmente oculto */
+            max-height: calc(100vh - 200px); /* Altura máxima del panel */
+            overflow-y: auto; /* Añadir scroll vertical */
+        }
+        .question-panel-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 12px;
+            position: sticky;
+            top: 0;
+            background-color: #f9f9f9;
+            padding: 5px 0;
+        }
+        .question-indicators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .question-indicator {
+            width: 22px;
+            height: 22px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ddd;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        /* Reducir tamaño de indicadores para muchas preguntas */
+        .small-indicators .question-indicator {
+            width: 18px;
+            height: 18px;
+            font-size: 9px;
+            margin: 2px;
+        }
+        .question-indicator:hover {
+            transform: scale(1.1);
+        }
+        .indicator-correct {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .indicator-incorrect {
+            background-color: #f44336;
+            color: white;
+        }
+        .indicator-noidea {
+            background-color: #ff9800;
+            color: white;
+        }
+        .indicator-answered {
+            background-color: #555;
+            color: white;
+        }
+        /* Para dispositivos móviles */
+        @media (max-width: 800px) {
+            body {
+                padding: 10px;
+            }
+            .question-panel {
+                bottom: 20px;
+                top: auto;
+                right: 10px;
+                width: 60px;
+                max-height: 200px; /* Altura máxima más pequeña para móviles */
+            }
+            .question-indicator {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+            }
+            .small-indicators .question-indicator {
+                width: 16px;
+                height: 16px;
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="startModal" class="modal">
+        <div class="modal-content">
+            <h2>Cuestionario de Ferrocarriles</h2>
+            <p>¿Cuántas preguntas deseas responder? (máximo 79)</p>
+            <input type="number" id="questionCount" min="1" max="79" value="20">
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="focusOnFailedQuestions" checked>
+                <label for="focusOnFailedQuestions">Incluir más preguntas que has fallado antes</label>
+            </div>
+            
+            <button id="startButton">Comenzar</button>
+        </div>
+    </div>
+
+    <h1>Cuestionario de Ferrocarriles</h1>
+    
+    <div class="progress-bar">
+        <div id="progress" class="progress"></div>
+    </div>
+    <p id="questionCounter">Pregunta: 0/0</p>
+    
+    <div class="stats hidden" id="stats">
+        <h2>Resultados</h2>
+        <p>Total de preguntas: <span id="totalQuestions">0</span></p>
+        <p>Respuestas correctas: <span id="correctAnswers">0</span></p>
+        <p>Porcentaje de acierto: <span id="percentage">0</span>%</p>
+        <button id="resetBtnTop">Reiniciar cuestionario</button>
+    </div>
+    
+    <div id="questionsContainer"></div>
+    
+    <!-- Panel lateral de preguntas -->
+    <div id="questionPanel" class="question-panel">
+        <div class="question-panel-title">Preguntas</div>
+        <div id="questionIndicators" class="question-indicators"></div>
+    </div>
+    
+    <!-- Controles con orden cambiado -->
+    <div class="controls">
+        <button id="resetBtn">Reiniciar cuestionario</button>
+        <button id="checkBtn">Comprobar respuestas</button>
+    </div>
+
+    <script>
+        // Array de preguntas
+        const allQuestions = [
+            {
+                question: "¿Qué locomotora tiene menos ejes motores y mayor número de motores?",
+                options: [
+                    "2−D−D−2",
+                    "1A−B−B−A1",
+                    "Bo-Bo-Bo",
+                    "1−C−C−1"
+                ],
+                correct: 2,
+                id: 1
+            },
+            {
+                question: "Con el A.S.F.A....",
+                options: [
+                    "Todas las respuestas son falsas",
+                    "No hacen falta pedales ni balizas en la vía",
+                    "El sistema frena al tren si rebasa una señal",
+                    "Los maquinistas reciben en cabina la señalización y datos de ..."
+                ],
+                correct: 2,
+                id: 2
+            },
+            {
+                question: "La falta de interoperabilidad…",
+                options: [
+                    "No se produce en la red ferroviaria española",
+                    "Sólo se produce en la frontera entre España y Francia",
+                    "Es menor en las líneas de vía estrecha",
+                    "Disminuiría si se implantase el ERTMS"
+                ],
+                correct: 3,
+                id: 3
+            },
+            {
+                question: "El desgaste de los carriles al paso de los trenes…",
+                options: [
+                    "Es mayor en un carril UIC 54 que en un UIC 60",
+                    "Ninguna respuesta es cierta",
+                    "Es menor en un carril de garganta que en uno tipo Vignole",
+                    "Es mayor en un carril UIC 60 que en un UIC 71"
+                ],
+                correct: 1,
+                id: 4
+            },
+            {
+                question: "En las nuevas líneas de alta velocidad…",
+                options: [
+                    "El transporte de electricidad a lo largo de la línea se realiza a 25 kV, y la alimentación de los trenes a 50kV",
+                    "No es necesario el circuito de retorno",
+                    "El transporte de electricidad a lo largo de la línea se realiza a 50 kV, y la alimentación de los trenes a 25 kV",
+                    "Los maquinistas conducen con los ojos cerrados"
+                ],
+                correct: 2,
+                id: 5
+            },
+            {
+                question: "Actualmente, las traviesas de hormigón…",
+                options: [
+                    "Son de hormigón en masa",
+                    "Son todas monobloque",
+                    "Son de hormigón pretensado si son bibloque",
+                    "Ninguna es cierta"
+                ],
+                correct: 2,
+                id: 6
+            },
+            {
+                question: "La catenaria compensada…",
+                options: [
+                    "No sirve para electrificación en corriente alterna",
+                    "No se puede instalar en túneles",
+                    "Mantiene la tensión mecánica constante",
+                    "Mantiene la tensión eléctrica constante"
+                ],
+                correct: 2,
+                id: 7
+            },
+            {
+                question: "Las sujeciones elásticas…",
+                options: [
+                    "Pueden utilizarse con traviesa polivalente",
+                    "Se deforman para igualar el peralte, pero luego se recuperan",
+                    "Aprietan el carril contra el balasto",
+                    "Son unos tornillos cuya cabeza sujeta el patín del carril y cuya rosca se mete en la traviesa"
+                ],
+                correct: 0,
+                id: 8
+            },
+            {
+                question: "La parte donde se produce la mayor discontinuidad en los desvíos se llama…",
+                options: [
+                    "Garganta",
+                    "Pata de liebre",
+                    "Laguna",
+                    "Cabeza"
+                ],
+                correct: 2,
+                id: 9
+            },
+            {
+                question: "Una forma de aumentar la velocidad de paso por vía desviada en un desvío es…",
+                options: [
+                    "Dar a la laguna trazado de clotoide",
+                    "Ninguna de las anteriores",
+                    "Poner peralte en la vía desviada",
+                    "Aumentar el ángulo de cruzamiento"
+                ],
+                correct: 1, // Cambiado a opción b) Ninguna de las anteriores
+                id: 10
+            },
+            {
+                question: "Estás en España y ves pasar un tren:",
+                options: [
+                    "Lo normal es que pase con retraso",
+                    "Lo normal es que sea una locomotora tirando de coches",
+                    "Lo normal es que sea un tren de dos pisos",
+                    "Lo normal es que sea un automotor"
+                ],
+                correct: 3,
+                id: 11
+            },
+            {
+                question: "El elastómero se utiliza:",
+                options: [
+                    "En vía en placa",
+                    "En cuñas de transición",
+                    "En juntas",
+                    "En el apoyo de la aguja sobre la contraaguja"
+                ],
+                correct: 0,
+                id: 12
+            },
+            {
+                question: "¿Qué sistema de señalización y control de tráfico tiene cantones móviles?",
+                options: [
+                    "ERTMS nivel 3",
+                    "ERTMS nivel 2",
+                    "ERTMS nivel 1",
+                    "Cantones ¿Qué?"
+                ],
+                correct: 0,
+                id: 13
+            },
+            {
+                question: "Contrato programa",
+                options: [
+                    "Es la base de la relación de las compañías ferroviarias privadas y el estado durante el siglo XIX",
+                    "Es el déficit de los servicios públicos de transporte ferroviario que lo debe financiar el estado",
+                    "Es una herramienta que sirve para evaluar el déficit de RENFE",
+                    "Recoge compromisos por parte del estado y por parte de RENFE"
+                ],
+                correct: 3,
+                id: 14
+            },
+            {
+                question: "En el proceso de fabricación de los carriles:",
+                options: [
+                    "El enfriamiento debe ser rápido y uniforme para conseguir un buen acero",
+                    "Hay que aportar más carbono que hierro para conseguir un buen acero",
+                    "El tiempo de enfriamiento del patín y el alma es mayor que lo que tarda en enfriarse la cabeza",
+                    "El tiempo de enfriamiento del patín y de la cabeza es mayor que el que tarda el alma en enfriarse"
+                ],
+                correct: 3,
+                id: 15
+            },
+            {
+                question: "¿Cuál de las siguientes líneas tendrá mayor capacidad de transporte según el sistema de comunicación y control de tráfico?",
+                options: [
+                    "Bloqueo automatico banalizado en vía doble",
+                    "Bloque automatico en via única",
+                    "Bloqueo telefónico en via doble",
+                    "Bloqueo automatico unidireccional en via doble"
+                ],
+                correct: 0,
+                id: 16
+            },
+            {
+                question: "¿En qué se beneficiaría el ferrocarril de Galileo?",
+                options: [
+                    "En nada porque ese señor ya se ha muerto",
+                    "En el desarrollo del más moderno sistema de señalización y control de trafico",
+                    "Ayudaría a la implementación del ERTMS nivel 1",
+                    "En el descubrimiento de la ley de peralte"
+                ],
+                correct: 1,
+                id: 17
+            },
+            {
+                question: "El AVE Madrid−Sevilla",
+                options: [
+                    "Funciona con una tensión de traccion de 3000 voltios",
+                    "Funciona con corriente alterna",
+                    "Funciona con conrriente continua",
+                    "Funciona con una tensión de 15000 voltios"
+                ],
+                correct: 1,
+                id: 18
+            },
+            {
+                question: "¿Qué sistemas pueden funcionar sin ningún cable de señalización ni de comunicación a lo largo de la vía?",
+                options: [
+                    "ERTMS nivel 1 y 3",
+                    "ERTMS nivel 2 y 3",
+                    "ERTMS nivel 1 y 2",
+                    "Ninguno de ellos"
+                ],
+                correct: 1,
+                id: 19
+            },
+            {
+                question: "El radio de bombeo",
+                options: [
+                    "Es mayor en las curvas",
+                    "Permite el drenaje superficial de la plataforma",
+                    "Es menor en el carril peraltado",
+                    "Permite una mayor duración del carril"
+                ],
+                correct: 3,
+                id: 20
+            },
+            {
+                question: "El juego de la vía…",
+                options: [
+                    "no se implanta en las rectas",
+                    "todas son falsas",
+                    "debe aumentarse en las rectas",
+                    "es mayor que el ancho de vía"
+                ],
+                correct: 1,
+                id: 21
+            },
+            {
+                question: "Siendo iguales en todo lo demás, la locomotora B tiene sus motores suspendidos, y la locomotora A, no:",
+                options: [
+                    "A será más agresiva a la vía que B",
+                    "Todas son verdaderas",
+                    "El peso de los motores de A está amortiguado, y el peso de los motores de B, no",
+                    "B tendrá menor porcentaje de peso suspendido que A"
+                ],
+                correct: 0,
+                id: 22
+            },
+            {
+                question: "Si un carril tiene una discontinuidad geométrica en planta, la vía tendrá…",
+                options: [
+                    "Un fallo de nivelación longitudinal",
+                    "Alabeo",
+                    "Una flecha",
+                    "Un fallo de nivelación transversal"
+                ],
+                correct: 2,
+                id: 23
+            },
+            {
+                question: "Los fallos admisibles en la continuidad geométrica en planta y alzado en las líneas de ffcc son del orden de:",
+                options: [
+                    "m",
+                    "km",
+                    "dm",
+                    "mm"
+                ],
+                correct: 3,
+                id: 24
+            },
+            {
+                question: "¿En qué capa de la superestructura se realiza el posicionado de la vía?",
+                options: [
+                    "En el anticontaminante",
+                    "En el subbalasto",
+                    "En la capa de forma",
+                    "En el balasto"
+                ],
+                correct: 3,
+                id: 25
+            },
+            {
+                question: "¿Qué locomotora tiene menos motores y más ejes portantes?",
+                options: [
+                    "1BoBo1",
+                    "A1A1A1A",
+                    "2BB2",
+                    "1D1"
+                ],
+                correct: 3, // Cambiado a opción d) 1D1
+                id: 26
+            },
+            {
+                question: "¿Para qué tipo de línea compraría trenes pendulares?",
+                options: [
+                    "Para una línea de alta velocidad",
+                    "Todas son falsas",
+                    "Para una línea de trazado sinuoso",
+                    "Es indiferente"
+                ],
+                correct: 2,
+                id: 27
+            },
+            {
+                question: "A igual peso adherente, ¿Qué automotor será más agresivo a la vía?",
+                options: [
+                    "CC-22-22-22-CC",
+                    "B2-B2-B2-B2-B2",
+                    "BoBo-22-BoBo-22-BoBo-22-BoBo-22-BoBo",
+                    "BB-22-BB-22-BB-22-BB"
+                ],
+                correct: 1,
+                id: 28
+            },
+            {
+                question: "¿Cuál es el freno principal de un tren?",
+                options: [
+                    "El freno neumático",
+                    "El freno eléctrico",
+                    "El freno de estacionamiento",
+                    "El freno de emergencia"
+                ],
+                correct: 0,
+                id: 29
+            },
+            {
+                question: "El ancho de la vía se mide…",
+                options: [
+                    "Entre las cabezas",
+                    "De alma a alma",
+                    "Entre los patines",
+                    "Entre las gargantas"
+                ],
+                correct: 0,
+                id: 30
+            },
+            {
+                question: "A igual longitud, ¿Qué vehículo tendrá mayor empate?",
+                options: [
+                    "Un remolque TALGO",
+                    "Un coche de bogies",
+                    "El empate es indiferente del tipo de vehículo",
+                    "Un coche de ejes"
+                ],
+                correct: 3,
+                id: 31
+            },
+            {
+                question: "El bateo de la vía…",
+                options: [
+                    "Compacta la capa de subbalasto",
+                    "Se realiza antes de instalar la vía sobre las capas de asiento",
+                    "Debe dejar el balasto sin huecos",
+                    "Ninguna es cierta"
+                ],
+                correct: 3,
+                id: 32
+            },
+            {
+                question: "¿Qué sistema de alimentación separa las funciones de sustentación y de alimentación?",
+                options: [
+                    "Tercer carril",
+                    "Catenaria",
+                    "Línea aérea simple",
+                    "Catenaria rígida"
+                ],
+                correct: 1,
+                id: 33
+            },
+            {
+                question: "¿Qué locomotora tiene más motores y menos ejes motores?",
+                options: [
+                    "1D1",
+                    "2BB2",
+                    "2CC2",
+                    "1BoBo1"
+                ],
+                correct: 3, // Cambiado a opción d) 1BoBo1
+                id: 34
+            },
+            {
+                question: "Si una locomotora diésel, remolcando un tren de mercancías, activa el freno eléctrico…",
+                options: [
+                    "Frenarán todos los ejes del tren",
+                    "Frenarán los ejes portantes",
+                    "Usará la energía generada para tracción",
+                    "Disipará la energía generada"
+                ],
+                correct: 3,
+                id: 35
+            },
+            {
+                question: "¿Qué tren tendrá más porcentaje de peso no suspendido?",
+                options: [
+                    "Aquel que tenga el motor apoyado en el bastidor y en el eje",
+                    "Es indiferente",
+                    "Aquel que tenga los motores en los ejes",
+                    "Aquel que tenga los motores en el bastidor de la caja"
+                ],
+                correct: 2,
+                id: 36
+            },
+            {
+                question: "¿Para qué tipo de línea sería más apropiado compras trenes pendulares o basculantes?",
+                options: [
+                    "Para una línea de ancho ibérico",
+                    "Para una línea con curvas de radio reducido",
+                    "Para una línea de alta velocidad",
+                    "Para una línea de ancho internacional"
+                ],
+                correct: 1,
+                id: 37
+            },
+            {
+                question: "¿Qué trenes inclinan la caja hacia el interior de las curvas de forma natural (con suspensiones pasivas)?",
+                options: [
+                    "Los trenes regionales",
+                    "Los trenes basculantes",
+                    "Los trenes pendulares",
+                    "Los trenes convencionales"
+                ],
+                correct: 2,
+                id: 38
+            },
+            {
+                question: "A igual peso adherente, ¿qué automotor será más agresivo a la vía?",
+                options: [
+                    "B2-B2-B2-B2-B2-B2",
+                    "BB-22-BB-22-BB-22-BB",
+                    "BB-22-22-22-22-BB",
+                    "A1A1-A1A1-A1A1-A1A1-A1A1-A1A1"
+                ],
+                correct: 2,
+                id: 39
+            },
+            {
+                question: "El eje montado en el ffcc:",
+                options: [
+                    "Gira un número de vueltas distinto que las ruedas para adaptarse a la diferencia de longitud entre carril exterior e interior",
+                    "Permite que las ruedas giren independientes para adaptarse a la curva",
+                    "Ninguna",
+                    "Presenta algunos problemas a la hora de pasar por las curvas"
+                ],
+                correct: 3,
+                id: 40
+            },
+            {
+                question: "¿Qué traviesa mantiene mejor la geometría?",
+                options: [
+                    "A189",
+                    "RS",
+                    "BR94",
+                    "Todas por igual"
+                ],
+                correct: 0,
+                id: 41
+            },
+            {
+                question: "En una línea de alta velocidad de vía doble, ¿Qué aparatos de vía usaría para pasar de una vía a otra y poder circular así en cada una en ambos sentidos?",
+                options: [
+                    "Escape doble",
+                    "Puente transbordador",
+                    "Escape cruzado",
+                    "Ninguna"
+                ],
+                correct: 0,
+                id: 42
+            },
+            {
+                question: "Número de traviesas por metro",
+                options: [
+                    "0.6",
+                    "1",
+                    "1.5",
+                    "1.66"
+                ],
+                correct: 0,
+                id: 43
+            },
+            {
+                question: "¿Qué es el peso no suspendido?",
+                options: [
+                    "Los ejes",
+                    "Las amortiguaciones",
+                    "Los ejes portantes",
+                    "Los ejes motores"
+                ],
+                correct: 0,
+                id: 44
+            },
+            {
+                question: "El sistema de señalización y control del tráfico ferroviario",
+                options: [
+                    "No es necesario si la línea es de doble vía",
+                    "Ninguna es correcta",
+                    "Se aplicó en las primeras líneas ferroviarias",
+                    "Se va extendiendo poco a poco a todas las líneas"
+                ],
+                correct: 1,
+                id: 45
+            },
+            {
+                question: "Casi toda la red ferroviaria en España estaba construida en:",
+                options: [
+                    "1992",
+                    "1900",
+                    "1950",
+                    "1848"
+                ],
+                correct: 1,
+                id: 46
+            },
+            {
+                question: "¿Qué sistema de control de tráfico se basa en la transmisión puntual de información para controlar el tráfico en la línea?",
+                options: [
+                    "Ninguno",
+                    "Bloqueo eléctrico manual",
+                    "ETRMS 3",
+                    "El bloqueo automático"
+                ],
+                correct: 3,
+                id: 47
+            },
+            {
+                question: "En un coche convencional de viajeros, el peso remolcado por viajero es de unos:",
+                options: [
+                    "1000 kg",
+                    "100 kg",
+                    "10 kg",
+                    "Ninguna"
+                ],
+                correct: 0,
+                id: 48
+            },
+            {
+                question: "El carril UIC 60 tiene una sección de:",
+                options: [
+                    "69.34 cm2",
+                    "60 cm2",
+                    "76.86 cm2",
+                    "90.79 cm2"
+                ],
+                correct: 2,
+                id: 49
+            },
+            {
+                question: "Un viajero que va en un tren convencional sufre una aceleración centrífuga de 0,3m/s2",
+                options: [
+                    "Hay insuficiencia de peralte",
+                    "Hay exceso de peralte",
+                    "El tren circula a una velocidad superior a la de la curva",
+                    "El pasajero sufre una aceleración al límite de comodidad"
+                ],
+                correct: 0,
+                id: 50
+            },
+            {
+                question: "Un pasajero de un tren convencional sufre una aceleración transversal compensada de 0.85 m/s2:",
+                options: [
+                    "Hay insuficiencia de peralte",
+                    "Hay exceso de peralte",
+                    "El tren circula a una velocidad superior a la de la curva",
+                    "El pasajero sufre una aceleración superior al límite de comodidad"
+                ],
+                correct: 1,
+                id: 51
+            },
+            {
+                question: "Un tren basculante sufre una aceleración transversal de 0.95 m/s2:",
+                options: [
+                    "Hay insuficiencia de peralte",
+                    "Hay exceso de peralte",
+                    "El tren circula a una velocidad superior a la de la curva",
+                    "Las suspensiones compensarían esta aceleración para que el pasajero no sufra una aceleración molesta"
+                ],
+                correct: 2,
+                id: 52
+            },
+            {
+                question: "¿Por qué está limitado el peralte de las curvas?",
+                options: [
+                    "Para limitar la velocidad en las curvas",
+                    "Por el mayor desgaste que sufre el carril interior en las curvas",
+                    "Por la mayor aceleración que sufren los pasajeros hacia el interior de la curva si el tren está parado",
+                    "Ninguna es correcta"
+                ],
+                correct: 2,
+                id: 53
+            },
+            {
+                question: "Los trenes basculantes son más sensibles a:",
+                options: [
+                    "La aceleración centrífuga no compensada hacia el interior de las curvas",
+                    "La aceleración centrífuga no compensada hacia el exterior de las curvas",
+                    "Aceleración vertical",
+                    "Aceleración longitudinal"
+                ],
+                correct: 1,
+                id: 54
+            },
+            {
+                question: "En un bogie, ¿Cómo se llama la distancia que va desde el punto de contacto de la pestaña de una de las ruedas con el carril al plano que forman las otras tres ruedas?",
+                options: [
+                    "Retranqueo",
+                    "Insuficiencia de peralte",
+                    "Alabeo",
+                    "Pendiente diagrama de peraltes"
+                ],
+                correct: 2,
+                id: 55
+            },
+            {
+                question: "¿Qué limita el coeficiente de calidad de una curva de transición?",
+                options: [
+                    "Velocidad de la curva de transición",
+                    "Parámetro de la clotoide",
+                    "Longitud del acuerdo",
+                    "El radio"
+                ],
+                correct: 1,
+                id: 56
+            },
+            {
+                question: "¿De qué parámetros depende el valor del retranqueo?",
+                options: [
+                    "De la longitud de la recta y el de radio de la curva circular",
+                    "De la longitud de la curva de transición y la velocidad de diseño",
+                    "De la longitud de la curva de transición y del radio de la curva circular",
+                    "Ninguna es correcta"
+                ],
+                correct: 2,
+                id: 57
+            },
+            {
+                question: "Un desvío consta de:",
+                options: [
+                    "Cruzamiento, cambio, carriles de unión y bloqueos",
+                    "Cruzamiento, laguna, desvío y contracarriles",
+                    "Cambio, carriles de unión, contracarriles y travesía",
+                    "Ninguna de las anteriores"
+                ],
+                correct: 1,
+                id: 58
+            },
+            {
+                question: "El producto de la carga en toneladas transportada por un tren de mercancías por la distancia recorrida se llama:",
+                options: [
+                    "Tonelada bruta remolcada",
+                    "Unidad de tráfico por km",
+                    "Tonelada por km",
+                    "Tonelada bruta completa"
+                ],
+                correct: 2,
+                id: 59
+            },
+            {
+                question: "¿Para qué se somete el carril continuo soldado al proceso de neutralización de tensiones?",
+                options: [
+                    "Para disminuir la dilatación del extremo del carril",
+                    "Para uniformizar el estado tensional del carril",
+                    "Para obtener la longitud de respiración en los extremos del carril",
+                    "Para conseguir que las tensiones térmicas del carril sean nulas en su vida útil"
+                ],
+                correct: 1,
+                id: 60
+            },
+            {
+                question: "Si una plataforma ferroviaria es del tipo P2 se sabe que:",
+                options: [
+                    "La capa de forma se compone de material tipo QS2",
+                    "No es necesario subbalasto",
+                    "Es necesario colocar un geotextil entre la plataforma y las capas de asiento",
+                    "Ninguna de las anteriores"
+                ],
+                correct: 2,
+                id: 61
+            },
+            {
+                question: "El peralte correspondiente a una curva:",
+                options: [
+                    "Va aumentando a lo largo de la curva de transición adyacente",
+                    "Es uniforme en toda la longitud de la recta",
+                    "Es independiente de la velocidad de los trenes de viajeros",
+                    "Siempre tiene el mismo valor, 160 mm"
+                ],
+                correct: 0,
+                id: 62
+            },
+            {
+                question: "La velocidad de los vehículos basculantes es:",
+                options: [
+                    "Igual a la de los vehículos convencionales",
+                    "Superior a los convencionales en rectas y en curvas",
+                    "Superior a los convencionales en rectas e inferior en curvas",
+                    "Igual a los convencionales en rectas y superior en curvas"
+                ],
+                correct: 3,
+                id: 63
+            },
+            {
+                question: "¿Cuál de los siguientes elementos no forma parte de la superestructura de la vía?",
+                options: [
+                    "Carril",
+                    "Balasto",
+                    "Juntas soldadas",
+                    "Capa de forma"
+                ],
+                correct: 3,
+                id: 64
+            },
+            {
+                question: "¿Cuál de las siguientes traviesas es de mayor longitud?",
+                options: [
+                    "De madera",
+                    "PR-90",
+                    "MR-93",
+                    "Todas tienen la misma longitud"
+                ],
+                correct: 2,
+                id: 65
+            },
+            {
+                question: "¿Cuál es el parámetro principal que caracteriza el tipo de carril?",
+                options: [
+                    "Su peso",
+                    "Su dureza",
+                    "Su longitud",
+                    "Ninguna de las anteriores"
+                ],
+                correct: 0,
+                id: 66
+            },
+            {
+                question: "¿Cuál de los siguientes elementos se utiliza para definir el trazado en alzado?",
+                options: [
+                    "Rasante",
+                    "Peralte",
+                    "Curva de transición",
+                    "Retranqueo"
+                ],
+                correct: 0,
+                id: 67
+            },
+            {
+                question: "La relación entre una carga puntual aplicada en el contacto carril-traviesa y el descenso que se produce en la vía se llama:",
+                options: [
+                    "Coeficiente de rigidez de la vía",
+                    "Módulo de la vía",
+                    "Coeficiente de balasto",
+                    "Módulo de elasticidad"
+                ],
+                correct: 0,
+                id: 68
+            },
+            {
+                question: "La tensión de un carril soldado, de 5km de longitud es:",
+                options: [
+                    "Constante a lo largo del tiempo",
+                    "Variable a lo largo del tiempo",
+                    "Independiente de su trazado",
+                    "Constante en toda su longitud"
+                ],
+                correct: 1,
+                id: 69
+            },
+            {
+                question: "La máxima tensión en el carril se produce:",
+                options: [
+                    "Punto de contacto llanta-carril",
+                    "En el carril exterior de una curva cuando circula el tren de viajeros más rápido",
+                    "En el carril exterior de una curva cuando circula el tren de mercancías más cargado",
+                    "Cuando actúan las cargas estáticas, cuasiestáticas y dinámicas"
+                ],
+                correct: 1,
+                id: 70
+            },
+            {
+                question: "La tensión que aparece en el carril:",
+                options: [
+                    "Depende del coeficiente de mantenimiento de la línea",
+                    "Depende de la rigidez de la vía",
+                    "Depende del tráfico que circule por la línea",
+                    "Depende de todos los parámetros anteriores"
+                ],
+                correct: 3,
+                id: 71
+            },
+            {
+                question: "La resistencia transversal de la vía:",
+                options: [
+                    "Constante en el tiempo",
+                    "Depende principalmente de la resistencia del carril",
+                    "Depende del coeficiente de balasto",
+                    "Aumenta a medida que circula más tráfico por la vía"
+                ],
+                correct: 2,
+                id: 72
+            },
+            {
+                question: "La longitud de las curvas de transición es:",
+                options: [
+                    "Mayor que la de la curva adyacente",
+                    "Menos que la de la curva adyacente",
+                    "Dependiente de la velocidad de circulación de los trenes",
+                    "Independiente del peralte de la curva"
+                ],
+                correct: 2,
+                id: 73
+            },
+            {
+                question: "Cuál de las siguientes estaciones no tiene función comercial:",
+                options: [
+                    "Terminales de contenedores",
+                    "Estaciones de pasajeros",
+                    "Estación clasificación",
+                    "Ninguna de las anteriores"
+                ],
+                correct: 2,
+                id: 74
+            },
+            {
+                question: "¿Qué sucede si el esfuerzo motor que realiza una locomotora supera a la fuerza de rozamiento existente entre la llanta y el carril?",
+                options: [
+                    "El esfuerzo tractor se reduce a cero",
+                    "Las llantas patinan y se paran",
+                    "El esfuerzo tractor se reduce al producto del peso de la locomotora por el coeficiente de rozamiento dinámico",
+                    "La locomotora aumenta su velocidad"
+                ],
+                correct: 2,
+                id: 75
+            },
+            {
+                question: "¿Cómo se denominan a los elementos que unen los ejes a las suspensiones?",
+                options: [
+                    "Cajas de grasa",
+                    "cojinetes",
+                    "zonas de calaje",
+                    "mangueta"
+                ],
+                correct: 3,
+                id: 76
+            },
+            {
+                question: "El pilotaje de emergencia es un sistema de:",
+                options: [
+                    "Bloqueo",
+                    "enclavamiento",
+                    "seguridad",
+                    "ayuda a la conducción"
+                ],
+                correct: 2,
+                id: 77
+            },
+            {
+                question: "¿Cómo se denomina el fenómeno que sucede cuando las zapatas de frenado se adhieren a las llantas?",
+                options: [
+                    "Patinaje",
+                    "Bloqueo",
+                    "frenado rápido",
+                    "ninguna de las anteriores"
+                ],
+                correct: 1,
+                id: 78
+            },
+            {
+                question: "Si un tren que circula por una curva está en situación de exceso de peralte, se cumple que:",
+                options: [
+                    "El tren circula a menos de 60 km/h",
+                    "Es un tren de mercancías",
+                    "El carril interior sufre una carga mayor que el exterior",
+                    "Ninguna de las anteriores"
+                ],
+                correct: 2,
+                id: 79
+            }
+        ];
+
+        // Variables globales
+        let questions = [];
+        let questionCount = 20;
+        let currentAnswers = {}; // Almacena las respuestas actuales del usuario
+        let noIdeaAnswers = {}; // Almacena las respuestas "No tengo ni idea"
+        let shuffledOptions = {}; // Almacena el orden aleatorio de las opciones
+        let correctMapping = {}; // Mapeo de las respuestas correctas después de mezclar
+        
+        // Funciones para gestionar el historial de preguntas incorrectas
+        function getFailedQuestions() {
+            try {
+                // Obtener historial guardado en localStorage
+                const failedHistory = localStorage.getItem('failedQuestions');
+                if (!failedHistory) {
+                    return {};
+                }
+                return JSON.parse(failedHistory);
+            } catch (error) {
+                console.error("Error al recuperar preguntas falladas:", error);
+                return {};
+            }
+        }
+        
+        function saveFailedQuestion(questionId) {
+            try {
+                // Guardar pregunta fallada
+                const failedHistory = getFailedQuestions();
+                
+                // Si la pregunta no existe en el historial, añadirla con contador a 1
+                if (!failedHistory[questionId]) {
+                    failedHistory[questionId] = { 
+                        count: 1,
+                        timestamp: Date.now()
+                    };
+                } else {
+                    // Incrementar contador y actualizar timestamp
+                    failedHistory[questionId].count++;
+                    failedHistory[questionId].timestamp = Date.now();
+                }
+                
+                // Guardar historial actualizado
+                localStorage.setItem('failedQuestions', JSON.stringify(failedHistory));
+                
+                // Comprobar si hay más de 10 tests y eliminar los más antiguos
+                cleanupOldTests();
+            } catch (error) {
+                console.error("Error al guardar pregunta fallada:", error);
+            }
+        }
+        
+        function removeFromFailedQuestions(questionId) {
+            try {
+                // Obtener el historial actual
+                const failedHistory = getFailedQuestions();
+                
+                // Si la pregunta existe en el historial, eliminarla
+                if (failedHistory[questionId]) {
+                    delete failedHistory[questionId];
+                    
+                    // Guardar historial actualizado
+                    localStorage.setItem('failedQuestions', JSON.stringify(failedHistory));
+                    return true;
+                }
+                return false;
+            } catch (error) {
+                console.error("Error al eliminar pregunta del historial:", error);
+                return false;
+            }
+        }
+        
+        function cleanupOldTests() {
+            try {
+                const failedHistory = getFailedQuestions();
+                const entries = Object.entries(failedHistory);
+                
+                // Si hay más de 10 tests (asumiendo un promedio de ~8 preguntas incorrectas por test)
+                // esto sería aproximadamente 80 entradas
+                if (entries.length > 80) {
+                    // Ordenar por timestamp (más antiguo primero)
+                    entries.sort((a, b) => a[1].timestamp - b[1].timestamp);
+                    
+                    // Eliminar el 20% más antiguo
+                    const toRemove = Math.floor(entries.length * 0.2);
+                    const remainingEntries = entries.slice(toRemove);
+                    
+                    // Reconstruir objeto
+                    const newHistory = {};
+                    remainingEntries.forEach(([id, data]) => {
+                        newHistory[id] = data;
+                    });
+                    
+                    // Guardar nuevo historial
+                    localStorage.setItem('failedQuestions', JSON.stringify(newHistory));
+                }
+            } catch (error) {
+                console.error("Error al limpiar historial de tests:", error);
+            }
+        }
+        
+        // Función para mezclar un array (algoritmo Fisher-Yates)
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+        
+        // Función para iniciar el cuestionario
+        function initQuiz() {
+            // Obtener el número de preguntas solicitadas
+            questionCount = parseInt(document.getElementById('questionCount').value);
+            questionCount = Math.min(Math.max(questionCount, 1), allQuestions.length);
+            
+            // Comprobar si se deben priorizar preguntas falladas antes
+            const focusOnFailed = document.getElementById('focusOnFailedQuestions').checked;
+            
+            if (focusOnFailed) {
+                // Seleccionar preguntas con énfasis en las falladas previamente
+                selectQuestionsWithFocus(questionCount);
+            } else {
+                // Mezclar todas las preguntas y tomar solo las primeras "questionCount"
+                questions = shuffleArray(allQuestions).slice(0, questionCount);
+            }
+            
+            // Ocultar el modal inicial
+            document.getElementById('startModal').style.display = 'none';
+            
+            // Preparar y mostrar las preguntas
+            shuffledOptions = {};
+            correctMapping = {};
+            currentAnswers = {};
+            noIdeaAnswers = {};
+            renderQuestions();
+            
+            // Inicializar el panel de indicadores
+            initializeQuestionPanel();
+            
+            // Actualizar el contador
+            updateQuestionCounter();
+        }
+        
+        // Función para inicializar el panel lateral de preguntas
+        function initializeQuestionPanel() {
+            const panel = document.getElementById('questionPanel');
+            const indicators = document.getElementById('questionIndicators');
+            
+            // Limpiar indicadores existentes
+            indicators.innerHTML = '';
+            
+            // Si hay muchas preguntas, usar indicadores más pequeños
+            const questionIndicatorsContainer = document.getElementById('questionIndicators');
+            if (questions.length > 40) {
+                questionIndicatorsContainer.parentElement.classList.add('small-indicators');
+            } else {
+                questionIndicatorsContainer.parentElement.classList.remove('small-indicators');
+            }
+            
+            // Crear un indicador para cada pregunta
+            for (let i = 0; i < questions.length; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'question-indicator';
+                indicator.textContent = (i + 1);
+                indicator.dataset.index = i;
+                indicator.addEventListener('click', () => {
+                    // Al hacer clic, ir a la pregunta correspondiente
+                    document.getElementById(`question${i}`).scrollIntoView({ behavior: 'smooth' });
+                });
+                
+                indicators.appendChild(indicator);
+            }
+            
+            // Mostrar el panel
+            panel.style.display = 'block';
+        }
+        
+        // Función para actualizar el panel de indicadores
+        function updateQuestionIndicator(index, status) {
+            const indicators = document.querySelectorAll('.question-indicator');
+            
+            if (index >= 0 && index < indicators.length) {
+                // Eliminar clases anteriores
+                indicators[index].classList.remove('indicator-correct', 'indicator-incorrect', 'indicator-noidea', 'indicator-answered');
+                
+                // Añadir la clase correspondiente según el estado
+                if (status === 'correct') {
+                    indicators[index].classList.add('indicator-correct');
+                } else if (status === 'incorrect') {
+                    indicators[index].classList.add('indicator-incorrect');
+                } else if (status === 'noidea') {
+                    indicators[index].classList.add('indicator-noidea');
+                } else if (status === 'answered') {
+                    indicators[index].classList.add('indicator-answered');
+                }
+            }
+        }
+        
+        // Función para seleccionar preguntas con énfasis en las falladas previamente
+        function selectQuestionsWithFocus(totalQuestions) {
+            const failedHistory = getFailedQuestions();
+            
+            // Dividir las preguntas en falladas y no falladas
+            const failedQuestionIds = Object.keys(failedHistory).map(Number);
+            const failedQuestions = allQuestions.filter(q => failedQuestionIds.includes(q.id));
+            const otherQuestions = allQuestions.filter(q => !failedQuestionIds.includes(q.id));
+            
+            // Mezclar ambos arrays
+            const shuffledFailed = shuffleArray(failedQuestions);
+            const shuffledOther = shuffleArray(otherQuestions);
+            
+            // Ordenar preguntas falladas por frecuencia de fallo (más falladas primero)
+            shuffledFailed.sort((a, b) => {
+                const countA = failedHistory[a.id]?.count || 0;
+                const countB = failedHistory[b.id]?.count || 0;
+                return countB - countA;
+            });
+            
+            // Determinar cuántas preguntas falladas incluir (50% del total)
+            const maxFailed = Math.min(shuffledFailed.length, Math.ceil(totalQuestions * 0.5));
+            const failedToInclude = shuffledFailed.slice(0, maxFailed);
+            
+            // Completar con otras preguntas si es necesario
+            const otherToInclude = shuffledOther.slice(0, totalQuestions - failedToInclude.length);
+            
+            // Combinar y mezclar para el orden final
+            questions = shuffleArray([...failedToInclude, ...otherToInclude]);
+        }
+        
+        // Función para actualizar el contador de preguntas
+        function updateQuestionCounter() {
+            document.getElementById('questionCounter').textContent = `Preguntas: ${Object.keys(currentAnswers).length + Object.keys(noIdeaAnswers).length} / ${questions.length}`;
+            
+            // Actualizar barra de progreso
+            const progress = ((Object.keys(currentAnswers).length + Object.keys(noIdeaAnswers).length) / questions.length) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+        }
+        
+        // Función para marcar una pregunta como "No tengo ni idea"
+        function markAsNoIdea(index) {
+            // Desmarcar cualquier opción seleccionada para esta pregunta
+            const radios = document.querySelectorAll(`input[name="question${index}"]`);
+            radios.forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Marcar como "No tengo ni idea"
+            noIdeaAnswers[index] = true;
+            
+            // Si había una respuesta anterior, eliminarla
+            if (currentAnswers[index] !== undefined) {
+                delete currentAnswers[index];
+            }
+            
+            // Actualizar el indicador en el panel lateral
+            updateQuestionIndicator(index, 'noidea');
+            
+            // Actualizar el contador
+            updateQuestionCounter();
+        }
+        
+        // Función para renderizar las preguntas
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+            
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.id = `question${index}`;
+                
+                // Crear un título específico para la pregunta que pueda ser coloreado
+                const questionTitle = document.createElement('div');
+                questionTitle.className = 'question-title';
+                questionTitle.innerHTML = `<strong>${index + 1}. ${q.question}</strong>`;
+                questionDiv.appendChild(questionTitle);
+                
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+                
+                // Mezclar las opciones
+                const options = [...q.options];
+                const shuffled = shuffleArray(options.filter(opt => opt !== null));
+                
+                // Crear un mapeo para rastrear la opción correcta después de mezclar
+                const optionMapping = {};
+                let letterIndex = 0;
+                
+                shuffled.forEach((option, i) => {
+                    const optionLabel = document.createElement('label');
+                    optionLabel.className = 'option';
+                    
+                    const optionInput = document.createElement('input');
+                    optionInput.type = 'radio';
+                    optionInput.name = `question${index}`;
+                    optionInput.value = i;
+                    optionInput.addEventListener('change', () => {
+                        currentAnswers[index] = i;
+                        // Si antes estaba marcada como "No tengo ni idea", eliminar esa marca
+                        if (noIdeaAnswers[index]) {
+                            delete noIdeaAnswers[index];
+                        }
+                        // Actualizar el indicador en el panel lateral como "respondida" (gris oscuro)
+                        updateQuestionIndicator(index, 'answered');
+                        updateQuestionCounter();
+                    });
+                    
+                    // Encontrar la posición original de esta opción
+                    const originalIndex = q.options.indexOf(option);
+                    optionMapping[i] = originalIndex;
+                    
+                    optionLabel.appendChild(optionInput);
+                    optionLabel.appendChild(document.createTextNode(` ${['a', 'b', 'c', 'd'][letterIndex++]}) ${option}`));
+                    
+                    optionsDiv.appendChild(optionLabel);
+                });
+                
+                // Guardar el mapeo de opciones para esta pregunta
+                shuffledOptions[index] = optionMapping;
+                
+                // Determinar cuál es la opción correcta después de mezclar
+                for (const [newIndex, originalIndex] of Object.entries(optionMapping)) {
+                    if (originalIndex === q.correct) {
+                        correctMapping[index] = parseInt(newIndex);
+                        break;
+                    }
+                }
+                
+                // Añadir botón "No tengo ni idea"
+                const noIdeaBtn = document.createElement('button');
+                noIdeaBtn.textContent = 'No tengo ni idea';
+                noIdeaBtn.className = 'no-idea-button';
+                noIdeaBtn.addEventListener('click', () => markAsNoIdea(index));
+                
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result hidden';
+                resultDiv.id = `result${index}`;
+                
+                questionDiv.appendChild(optionsDiv);
+                questionDiv.appendChild(noIdeaBtn);
+                questionDiv.appendChild(resultDiv);
+                
+                container.appendChild(questionDiv);
+            });
+        }
+        
+        // Función para comprobar respuestas
+        function checkAnswers() {
+            let correctCount = 0;
+            
+            questions.forEach((q, index) => {
+                const questionDiv = document.getElementById(`question${index}`);
+                const resultDiv = document.getElementById(`result${index}`);
+                resultDiv.classList.remove('hidden');
+                
+                // Comprobar si se marcó como "No tengo ni idea"
+                if (noIdeaAnswers[index]) {
+                    resultDiv.textContent = `No tenías ni idea. La respuesta correcta es: ${['a', 'b', 'c', 'd'][correctMapping[index]]}`;
+                    resultDiv.className = 'result incorrect';
+                    questionDiv.classList.add('question-incorrect');
+                    
+                    // Actualizar indicador en el panel lateral
+                    updateQuestionIndicator(index, 'noidea');
+                    
+                    // Guardar pregunta como incorrecta
+                    saveFailedQuestion(q.id);
+                    
+                    return; // Continuar con la siguiente pregunta
+                }
+                
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                
+                if (selectedOption) {
+                    const selectedIndex = parseInt(selectedOption.value);
+                    const isCorrect = selectedIndex === correctMapping[index];
+                    
+                    if (isCorrect) {
+                        resultDiv.textContent = '¡Correcto!';
+                        resultDiv.className = 'result correct';
+                        questionDiv.classList.add('question-correct');
+                        correctCount++;
+                        
+                        // Actualizar indicador en el panel lateral
+                        updateQuestionIndicator(index, 'correct');
+                        
+                        // Eliminar de las preguntas incorrectas si estaba allí
+                        removeFromFailedQuestions(q.id);
+                        
+                    } else {
+                        const correctLetter = ['a', 'b', 'c', 'd'][correctMapping[index]];
+                        resultDiv.textContent = `Incorrecto. La respuesta correcta es: ${correctLetter}`;
+                        resultDiv.className = 'result incorrect';
+                        questionDiv.classList.add('question-incorrect');
+                        
+                        // Actualizar indicador en el panel lateral
+                        updateQuestionIndicator(index, 'incorrect');
+                        
+                        // Guardar pregunta incorrecta en el historial
+                        saveFailedQuestion(q.id);
+                    }
+                } else {
+                    resultDiv.textContent = 'No has seleccionado ninguna respuesta';
+                    resultDiv.className = 'result';
+                    questionDiv.classList.add('question-incorrect'); // Marcar como incorrecta si no se respondió
+                    
+                    // Actualizar indicador en el panel lateral
+                    updateQuestionIndicator(index, 'incorrect');
+                    
+                    // Guardar pregunta sin respuesta como incorrecta
+                    saveFailedQuestion(q.id);
+                }
+            });
+            
+            // Actualizar estadísticas
+            document.getElementById('totalQuestions').textContent = questions.length;
+            document.getElementById('correctAnswers').textContent = correctCount;
+            document.getElementById('percentage').textContent = ((correctCount / questions.length) * 100).toFixed(1);
+            document.getElementById('stats').classList.remove('hidden');
+            
+            // Hacer scroll hasta la sección de estadísticas
+            document.getElementById('stats').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Función para reiniciar el cuestionario
+        function resetQuiz() {
+            document.getElementById('startModal').style.display = 'flex';
+            document.getElementById('stats').classList.add('hidden');
+            document.getElementById('questionPanel').style.display = 'none';
+            currentAnswers = {};
+            noIdeaAnswers = {};
+            document.getElementById('questionCounter').textContent = 'Pregunta: 0/0';
+            document.getElementById('progress').style.width = '0%';
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('startButton').addEventListener('click', initQuiz);
+            document.getElementById('checkBtn').addEventListener('click', checkAnswers);
+            document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+            document.getElementById('resetBtnTop').addEventListener('click', resetQuiz);
+        });
+    </script>
+</body>
+</html>
